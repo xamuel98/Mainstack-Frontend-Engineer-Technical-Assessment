@@ -72,3 +72,43 @@ export const itemVariants: Variants = {
         },
     },
 };
+
+// Animation Variants for Mainstack Apps Dialog Title
+export const mainstackAppsDialogTitleVariants: Variants = {
+    hidden: { opacity: 0, filter: 'blur(6px)' },
+    visible: {
+        opacity: 1,
+        filter: 'blur(0px)',
+        transition: {
+            duration: 0.6,
+            ease: [0.16, 1, 0.3, 1],
+            delay: 0.1,
+        },
+    },
+};
+
+// Animation Variants for Mainstack Apps Dialog Item
+export const mainstackAppsDialogItemVariants: Variants = {
+    hidden: { opacity: 0, y: 18 },
+    visible: (i: number) => ({
+        opacity: 1,
+        y: 0,
+        transition: {
+            type: 'spring',
+            stiffness: 300,
+            damping: 28,
+            delay: i * 0.1,
+        },
+    }),
+};
+
+// Animation Variants for Mainstack Apps Dialog Container
+export const mainstackAppsDialogContainerVariants: Variants = {
+    hidden: {},
+    visible: {
+        transition: {
+            delayChildren: 0.7,
+            staggerChildren: 0.08,
+        },
+    },
+};

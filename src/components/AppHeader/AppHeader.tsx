@@ -1,7 +1,8 @@
 /** @jsxImportSource @emotion/react */
 import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
-import { Avatar, HStack } from '@chakra-ui/react';
+import { Avatar, HStack, SkeletonCircle } from '@chakra-ui/react';
+import { useUser, useUserFullName } from '@/hooks';
 import MainstackLogo from '@/assets/svgs/mainstack-logo.svg';
 import { headerVariants } from '@/utils/animationVariants';
 import AppHeaderNavigationLinks from './AppHeaderNavigationLinks';
@@ -19,6 +20,9 @@ import {
 } from './styles';
 
 const AppHeader = React.memo(() => {
+    const { data: user, isLoading: isLoadingUser } = useUser();
+    const userFullName = useUserFullName();
+
     const [isAppsOpen, setIsAppsOpen] = useState<boolean>(false);
 
     const handleIsAppsOpen = (isOpen: boolean) => {
@@ -44,20 +48,24 @@ const AppHeader = React.memo(() => {
                     alignItems='center'
                 >
                     {/* User Avatar */}
-                    <Avatar.Root
-                        size='lg'
-                        style={{
-                            background:
-                                'linear-gradient(139deg, #5C6670 2.33%, #131316 96.28%)',
-                            color: '#FFFFFF',
-                        }}
-                    >
-                        <Avatar.Fallback
-                            name={'San Dma'}
-                            fontWeight={600}
-                            fontSize='lg'
-                        />
-                    </Avatar.Root>
+                    {isLoadingUser ? (
+                        <SkeletonCircle size={11} />
+                    ) : (
+                        <Avatar.Root
+                            size='lg'
+                            style={{
+                                background:
+                                    'linear-gradient(139deg, #5C6670 2.33%, #131316 96.28%)',
+                                color: '#FFFFFF',
+                            }}
+                        >
+                            <Avatar.Fallback
+                                name={userFullName}
+                                fontWeight={600}
+                                fontSize='lg'
+                            />
+                        </Avatar.Root>
+                    )}
 
                     {/* Apps Dialog */}
                     <AppHeaderMoreAppsDialog />
@@ -87,7 +95,11 @@ const AppHeader = React.memo(() => {
                 </AppHeaderNav>
 
                 {/* Actions Section */}
-                <AppHeaderActions />
+                <AppHeaderActions
+                    user={user}
+                    userFullName={userFullName}
+                    isLoadingUser={isLoadingUser}
+                />
             </AppHeaderInner>
         </AppHeaderContainer>
     );
