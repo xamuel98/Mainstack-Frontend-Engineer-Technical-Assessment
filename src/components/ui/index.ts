@@ -1,3 +1,3 @@
-export { Button, buttonVariants } from './Button';
-export { Avatar, avatarVariants } from './Avatar';
-export { Loader, PageLoader, InlineLoader, loaderVariants } from './Loader';
+export { Button } from './Button';
+export { Loader, PageLoader, InlineLoader } from './Loader';
+export { Tooltip } from './tooltip';

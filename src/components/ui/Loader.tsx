@@ -1,83 +1,95 @@
 import React from 'react';
-import { cva, type VariantProps } from 'class-variance-authority';
-import { cn } from '@/lib/utils';
+import { Spinner, Flex, Text } from '@chakra-ui/react';
 
-const loaderVariants = cva('animate-spin rounded-full border-2 border-current', {
-  variants: {
-    size: {
-      sm: 'h-4 w-4',
-      default: 'h-6 w-6',
-      lg: 'h-8 w-8',
-      xl: 'h-12 w-12',
-    },
-    variant: {
-      default: 'border-primary border-t-transparent',
-      secondary: 'border-secondary border-t-transparent',
-      muted: 'border-muted-foreground border-t-transparent',
-    },
-  },
-  defaultVariants: {
-    size: 'default',
-    variant: 'default',
-  },
-});
-
-export interface LoaderProps
-  extends React.HTMLAttributes<HTMLDivElement>,
-    VariantProps<typeof loaderVariants> {
-  text?: string;
+export interface LoaderProps {
+    size?: 'sm' | 'md' | 'lg' | 'xl';
+    variant?: 'default' | 'secondary' | 'muted';
+    text?: string;
+    className?: string;
 }
 
 const Loader = React.forwardRef<HTMLDivElement, LoaderProps>(
-  ({ className, size, variant, text, ...props }, ref) => {
-    return (
-      <div
-        ref={ref}
-        className={cn('flex items-center justify-center gap-2', className)}
-        {...props}
-      >
-        <div className={cn(loaderVariants({ size, variant }))} />
-        {text && (
-          <span className="text-sm text-muted-foreground">{text}</span>
-        )}
-      </div>
-    );
-  }
+    ({ size = 'md', variant = 'default', text, ...props }, ref) => {
+        const getSpinnerSize = () => {
+            switch (size) {
+                case 'sm':
+                    return 'sm';
+                case 'md':
+                    return 'md';
+                case 'lg':
+                    return 'lg';
+                case 'xl':
+                    return 'xl';
+                default:
+                    return 'md';
+            }
+        };
+
+        const getSpinnerColor = () => {
+            switch (variant) {
+                case 'secondary':
+                    return 'gray.500';
+                case 'muted':
+                    return 'gray.400';
+                default:
+                    return 'blue.500';
+            }
+        };
+
+        return (
+            <Flex ref={ref} align='center' justify='center' gap={2} {...props}>
+                <Spinner size={getSpinnerSize()} color={getSpinnerColor()} />
+                {text && (
+                    <Text fontSize='sm' color='gray.600'>
+                        {text}
+                    </Text>
+                )}
+            </Flex>
+        );
+    }
 );
 
 Loader.displayName = 'Loader';
 
 // Full page loader component
 export interface PageLoaderProps {
-  text?: string;
-  className?: string;
+    text?: string;
+    className?: string;
 }
 
-const PageLoader: React.FC<PageLoaderProps> = ({ text = 'Loading...', className }) => {
-  return (
-    <div className={cn('flex min-h-screen items-center justify-center', className)}>
-      <Loader size="lg" text={text} />
-    </div>
-  );
+const PageLoader: React.FC<PageLoaderProps> = ({
+    text = 'Loading...',
+    className,
+}) => {
+    return (
+        <Flex
+            minH='100vh'
+            align='center'
+            justify='center'
+            className={className}
+        >
+            <Loader size='lg' text={text} />
+        </Flex>
+    );
 };
 
 // Inline loader for smaller sections
 export interface InlineLoaderProps {
-  text?: string;
-  className?: string;
-  size?: VariantProps<typeof loaderVariants>['size'];
+    text?: string;
+    className?: string;
+    size?: 'sm' | 'md' | 'lg' | 'xl';
 }
 
-const InlineLoader: React.FC<InlineLoaderProps> = ({ 
-  text = 'Loading...', 
-  className,
-  size = 'default'
+const InlineLoader: React.FC<InlineLoaderProps> = ({
+    text = 'Loading...',
+    className,
+    size = 'md',
 }) => {
-  return (
-    <div className={cn('flex items-center justify-center p-4', className)}>
-      <Loader size={size} text={text} />
-    </div>
-  );
+    return (
+        <Flex align='center' justify='center' p={4} className={className}>
+            <Loader size={size} text={text} />
+        </Flex>
+    );
 };
 
-export { Loader, PageLoader, InlineLoader, loaderVariants };
+export { Loader, PageLoader, InlineLoader };

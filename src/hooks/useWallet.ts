@@ -20,10 +20,10 @@ export const WALLET_QUERY_KEY = ['wallet'] as const;
  * @returns React Query result with wallet data, loading state, and error handling
  */
 export const useWallet = (): UseQueryResult<Wallet, ApiError> => {
-  return useQuery({
-    queryKey: WALLET_QUERY_KEY,
-    queryFn: fetchWallet,
-  });
+    return useQuery({
+        queryKey: WALLET_QUERY_KEY,
+        queryFn: fetchWallet,
+    });
 };
 
 /**
@@ -31,23 +31,23 @@ export const useWallet = (): UseQueryResult<Wallet, ApiError> => {
  * @returns Computed wallet metrics and percentages
  */
 export const useWalletStats = () => {
-  const { data: wallet, isLoading, error } = useWallet();
+    const { data: wallet, isLoading, error } = useWallet();
 
-  const stats = {
-    // Basic wallet data
-    balance: wallet?.balance || 0,
-    totalRevenue: wallet?.total_revenue || 0,
-    totalPayout: wallet?.total_payout || 0,
-    pendingPayout: wallet?.pending_payout || 0,
-    ledgerBalance: wallet?.ledger_balance || 0,
-  };
+    const stats = {
+        // Basic wallet data
+        balance: wallet?.balance || 0,
+        totalRevenue: wallet?.total_revenue || 0,
+        totalPayout: wallet?.total_payout || 0,
+        pendingPayout: wallet?.pending_payout || 0,
+        ledgerBalance: wallet?.ledger_balance || 0,
+    };
 
-  return {
-    ...stats,
-    isLoading,
-    error,
-    hasData: !!wallet,
-  };
+    return {
+        ...stats,
+        isLoading,
+        error,
+        hasData: !!wallet,
+    };
 };
 
 /**
@@ -56,10 +56,10 @@ export const useWalletStats = () => {
  * @returns Boolean indicating if balance is sufficient
  */
 export const useHasSufficientBalance = (amount: number): boolean => {
-  const { data: wallet } = useWallet();
-  
-  if (!wallet || amount <= 0) return false;
-  
-  const availableBalance = wallet.balance - wallet.pending_payout;
-  return availableBalance >= amount;
+    const { data: wallet } = useWallet();
+
+    if (!wallet || amount <= 0) return false;
+
+    const availableBalance = wallet.balance - wallet.pending_payout;
+    return availableBalance >= amount;
 };
