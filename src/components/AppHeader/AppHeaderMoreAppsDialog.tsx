@@ -10,7 +10,12 @@ import {
     Portal,
     HStack,
 } from '@chakra-ui/react';
-import { MORE_APPS_NAVIGATION_ITEMS } from '@/utils/routes';
+import {
+    MORE_APPS_NAVIGATION_ITEMS,
+    mainstackAppsDialogContainerVariants,
+    mainstackAppsDialogItemVariants,
+    mainstackAppsDialogTitleVariants,
+} from '@/utils';
 import {
     DropdownItemArrow,
     DropdownItemContent,
@@ -19,12 +24,8 @@ import {
     DropdownItemLabel,
     DropdownItemTitle,
     MoreAppsDropdownItemButton,
-} from './styles';
-import {
-    mainstackAppsDialogContainerVariants,
-    mainstackAppsDialogItemVariants,
-    mainstackAppsDialogTitleVariants,
-} from '@/utils/animationVariants';
+} from './';
+import { useAutoCloseMobileDialog } from '@/hooks';
 
 const DialogTitle = motion.create(Text);
 const DialogContent = motion.create(Dialog.Content);
@@ -38,6 +39,13 @@ const AppHeaderMoreAppsDialog = React.memo(() => {
         setSelectedApp(app);
         setIsMoreAppsDialogOpen(false);
     };
+
+    // Automatically close mobile dialog when window width exceeds 768px
+    useAutoCloseMobileDialog({
+        isOpen: isMoreAppsDialogOpen,
+        setIsOpen: setIsMoreAppsDialogOpen,
+        breakpoint: 768,
+    });
 
     return (
         <Dialog.Root
@@ -107,9 +115,7 @@ const AppHeaderMoreAppsDialog = React.memo(() => {
                             color='gray.400'
                             fontSize='14px'
                             fontWeight={500}
-                            fontFamily={
-                                '"Degular", "Degular Display" system-ui'
-                            }
+                            fontFamily='heading'
                             variants={mainstackAppsDialogTitleVariants}
                             initial='hidden'
                             animate='visible'
@@ -163,11 +169,10 @@ const AppHeaderMoreAppsDialog = React.memo(() => {
                                 bg='gray.50'
                                 rounded='full'
                                 marginTop={4}
+                                height='48px'
                                 fontSize='16px'
                                 fontWeight={600}
-                                fontFamily={
-                                    '"Degular", "Degular Display" system-ui'
-                                }
+                                fontFamily='body'
                             >
                                 Close
                             </Button>

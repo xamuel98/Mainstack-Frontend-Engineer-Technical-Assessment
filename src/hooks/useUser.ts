@@ -9,7 +9,7 @@
  */
 
 import { useQuery, UseQueryResult } from '@tanstack/react-query';
-import { fetchUser } from '@/lib/api';
+import { fetchUser } from '@/lib';
 import { User, ApiError } from '@/types';
 
 // Query key for user data

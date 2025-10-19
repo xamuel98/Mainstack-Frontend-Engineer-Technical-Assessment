@@ -1,8 +1,8 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { For, Text } from '@chakra-ui/react';
-import { APP_HEADER_NAVIGATION_ITEMS } from '@/utils/routes';
-import { AppToolbarContainer } from './AppToolbar.styles';
+import { APP_HEADER_NAVIGATION_ITEMS } from '@/utils';
+import { AppToolbarContainer } from './';
 
 const AppToolbar = React.memo(() => {
     return (

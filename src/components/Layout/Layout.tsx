@@ -1,13 +1,9 @@
 import { Outlet } from 'react-router-dom';
-import {
-    LayoutWrapper,
-    LayoutContainer,
-    LayoutOutlet,
-    LayoutBox,
-} from './Layout.styles';
+import { AnimatePresence } from 'framer-motion';
 import { AppHeader } from '../AppHeader';
 import { AppToolbar } from '../AppToolbar';
 import { AppSwitcherAnchor } from '../AppSwitcherAnchor';
+import { LayoutWrapper, LayoutContainer, LayoutOutlet, LayoutBox } from './';
 
 const Layout = () => {
     return (
@@ -26,7 +22,9 @@ const Layout = () => {
             >
                 <LayoutOutlet>
                     <LayoutBox>
-                        <Outlet />
+                        <AnimatePresence>
+                            <Outlet />
+                        </AnimatePresence>
                     </LayoutBox>
                 </LayoutOutlet>
             </LayoutContainer>

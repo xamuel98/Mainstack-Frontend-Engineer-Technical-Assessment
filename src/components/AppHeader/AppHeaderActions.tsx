@@ -9,12 +9,12 @@ import {
 } from '@chakra-ui/react';
 import { User } from '@/types';
 import {
+    UserActionsDropdown,
     AppHeaderActionGroup,
     AppHeaderActionItem,
     AppHeaderUserAction,
     AppHeaderUserAvatarFallback,
-} from './styles';
-import UserActionsDropdown from './UserActionsDropdown';
+} from './';
 import { Tooltip } from '../ui';
 
 interface AppHeaderActionsProps {

@@ -10,8 +10,13 @@
 
 import { useQuery, UseQueryResult } from '@tanstack/react-query';
 import { useMemo } from 'react';
-import { fetchTransactions } from '@/lib/api';
+import { fetchTransactions } from '@/lib';
 import { Transaction, ApiError } from '@/types';
+import {
+    FilterState,
+    filterTransactions,
+    sortTransactionsByDate,
+} from '@/utils';
 
 // Query key for transactions data
 export const TRANSACTIONS_QUERY_KEY = ['transactions'] as const;
@@ -28,53 +33,22 @@ export const useTransactions = (): UseQueryResult<Transaction[], ApiError> => {
 };
 
 /**
- * Hook to get filtered and sorted transactions
- * @param filters - Filter options for transactions
+ * Enhanced hook to get filtered and sorted transactions using FilterState
+ * @param filterState - Complex filter state from FilterPanel
  * @returns Filtered and sorted transactions with metadata
  */
-export const useFilteredTransactions = (filters?: {
-    type?: 'deposit' | 'withdrawal';
-    status?: 'successful' | 'pending' | 'failed';
-    dateFrom?: string;
-    dateTo?: string;
-}) => {
+export const useFilteredTransactions = (filterState?: FilterState) => {
     const { data: transactions, isLoading, error } = useTransactions();
 
     const filteredTransactions = useMemo(() => {
-        if (!transactions) return [];
+        if (!transactions || !filterState) return transactions || [];
 
-        let filtered = [...transactions];
-
-        // Filter by type
-        if (filters?.type) {
-            filtered = filtered.filter(tx => tx.type === filters.type);
-        }
-
-        // Filter by status
-        if (filters?.status) {
-            filtered = filtered.filter(tx => tx.status === filters.status);
-        }
-
-        // Filter by date range
-        if (filters?.dateFrom) {
-            filtered = filtered.filter(
-                tx => new Date(tx.date) >= new Date(filters.dateFrom!)
-            );
-        }
-
-        if (filters?.dateTo) {
-            filtered = filtered.filter(
-                tx => new Date(tx.date) <= new Date(filters.dateTo!)
-            );
-        }
+        // Apply complex filtering using the utility functions
+        const filtered = filterTransactions(transactions, filterState);
 
         // Sort by date (newest first)
-        filtered.sort(
-            (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
-        );
-
-        return filtered;
-    }, [transactions, filters]);
+        return sortTransactionsByDate(filtered);
+    }, [transactions, filterState]);
 
     return {
         transactions: filteredTransactions,

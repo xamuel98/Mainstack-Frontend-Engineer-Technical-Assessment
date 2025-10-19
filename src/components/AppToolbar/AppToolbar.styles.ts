@@ -49,7 +49,7 @@ export const AppToolbarContainer = styled(Box)`
     height: 3.75rem;
     background: #ffffff;
     align-items: center;
-    z-index: 1030;
+    z-index: 30;
     width: 100%;
 
     @media (min-width: 1024px) {

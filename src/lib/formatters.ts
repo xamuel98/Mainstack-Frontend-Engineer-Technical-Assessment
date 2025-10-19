@@ -5,45 +5,54 @@
  * Handles money, date, and other common formatting needs
  * @author Sanni Samuel <samuelakintomiwa98@gmail.com>
  * @date 2025-10-17
- * @lastModified 2025-10-17
+ * @lastModified 2025-10-19
  * @version 1.0.0
  */
 
 /**
- * Format currency amounts with proper locale and currency symbol
+ * @description Format currency amounts in the format "USD 343" or "USD 434.54"
  * @param amount - The amount to format
  * @param currency - Currency code (default: USD)
- * @param locale - Locale for formatting (default: en-US)
+ * @example
+ * formatMoney(343) // "USD 343"
+ * formatMoney(434.54) // "USD 434.54"
+ * formatMoney(1000.50) // "USD 1000.5"
+ * formatMoney(0.54) // "USD 0.54"
  */
 export const formatMoney = (
     amount: number,
-    currency: string = 'USD',
-    locale: string = 'en-US'
+    currency: string = 'USD'
 ): string => {
     try {
-        return new Intl.NumberFormat(locale, {
-            style: 'currency',
-            currency,
-            minimumFractionDigits: 2,
-            maximumFractionDigits: 2,
-        }).format(amount);
+        // Check if the amount is a whole number
+        const isWholeNumber = amount % 1 === 0;
+
+        if (isWholeNumber) {
+            return `${currency} ${amount}`;
+        } else {
+            const formattedAmount = parseFloat(amount.toFixed(2));
+            return `${currency} ${formattedAmount}`;
+        }
     } catch (error: unknown) {
-        // Fallback formatting if Intl.NumberFormat fails
-        return `$${amount.toFixed(2)}`;
+        // Fallback formatting if an error occurs
+        return `${currency} ${amount}`;
     }
 };
 
 /**
- * Format date strings into human-readable format
+ * @description Format date strings into human-readable
  * @param dateString - ISO date string or date
  * @param options - Intl.DateTimeFormat options
+ * @example
+ * formatDate('2022-04-03') // "Apr 03, 2022"
+ * formatDate('2023-12-09') // "Dec 09, 2023"
  */
 export const formatDate = (
     dateString: string | Date,
     options: Intl.DateTimeFormatOptions = {
         year: 'numeric',
         month: 'short',
-        day: 'numeric',
+        day: '2-digit',
     }
 ): string => {
     try {
@@ -56,7 +65,7 @@ export const formatDate = (
 };
 
 /**
- * Format transaction status with proper capitalization
+ * @description Format transaction status with proper capitalization
  * @param status - Transaction status
  */
 export const formatTransactionStatus = (status: string): string => {

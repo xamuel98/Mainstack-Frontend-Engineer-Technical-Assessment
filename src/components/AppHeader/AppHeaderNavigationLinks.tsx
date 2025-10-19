@@ -1,10 +1,9 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import { Text, For } from '@chakra-ui/react';
-import { APP_HEADER_NAVIGATION_ITEMS } from '@/utils/routes';
-import { AppHeaderNavLink } from './styles';
 import { motion } from 'framer-motion';
-import { linkVariants } from '@/utils/animationVariants';
+import { Text, For } from '@chakra-ui/react';
+import { APP_HEADER_NAVIGATION_ITEMS, linkVariants } from '@/utils';
+import { AppHeaderNavLink } from './';
 
 interface AppHeaderNavigationLinksProps {
     isAppsOpen: boolean;

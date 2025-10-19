@@ -2,9 +2,8 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { MaterialSymbol } from 'react-material-symbols';
 import { Text, Flex, Popover } from '@chakra-ui/react';
-import { linkVariants } from '@/utils/animationVariants';
-import { AppHeaderNavMoreAction } from './styles';
-import MoreAppsDropdown from './MoreAppsDropdown';
+import { linkVariants } from '@/utils';
+import { MoreAppsDropdown, AppHeaderNavMoreAction } from './';
 
 interface AppHeaderMoreAppsProps {
     onOpenChange: (isOpen: boolean) => void;

@@ -1,11 +1,8 @@
 import React from 'react';
 import { For, Image } from '@chakra-ui/react';
-import { MORE_APPS_NAVIGATION_ITEMS } from '@/utils/routes';
+import { MORE_APPS_NAVIGATION_ITEMS } from '@/utils';
 import { Tooltip } from '../ui';
-import {
-    AppSwitcherAnchorContainer,
-    AppSwitcherAnchorItem,
-} from './AppSwitcherAnchor.styles';
+import { AppSwitcherAnchorContainer, AppSwitcherAnchorItem } from './';
 
 const AppSwitcherAnchor = React.memo(() => {
     return (

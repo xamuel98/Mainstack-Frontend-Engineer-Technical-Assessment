@@ -1,8 +1,7 @@
 import React from 'react';
 import { MaterialSymbol } from 'react-material-symbols';
 import { Popover, For, Image, Portal } from '@chakra-ui/react';
-import { MORE_APPS_NAVIGATION_ITEMS } from '@/utils/routes';
-import { itemVariants } from '@/utils/animationVariants';
+import { itemVariants, MORE_APPS_NAVIGATION_ITEMS } from '@/utils';
 import {
     DropdownItemArrow,
     DropdownItemContent,
@@ -12,7 +11,7 @@ import {
     MoreAppsDropdownItemButton,
     DropdownItemTitle,
     MoreAppsDropdownSection,
-} from './styles';
+} from './';
 
 interface MoreAppsDropdownProps {
     onSelectApp: (title: string) => void;

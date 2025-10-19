@@ -1,14 +1,14 @@
-import styled from "@emotion/styled";
-import { fluidCalc } from "@/utils/fluidCalc";
+import styled from '@emotion/styled';
+import { fluidCalc } from '@/utils';
 
 export const TransactionsHeaderContainer = styled.div`
     display: flex;
     align-items: flex-start;
-    background: #FFFFFF;
+    background: #ffffff;
     width: 100%;
     padding-bottom: 1.5rem;
     column-gap: 1.5rem;
-    border-bottom: 1px solid #EFF1F6;
+    border-bottom: 1px solid #eff1f6;
 
     @media (max-width: 480px) {
         flex-direction: column;
@@ -53,7 +53,7 @@ export const TransactionsHeaderSubtitle = styled.p`
         Roboto,
         sans-serif;
     white-space: nowrap;
-    color: #56616B;
+    color: #56616b;
     text-align: left;
     font-size: 0.875rem;
     font-style: normal;
@@ -89,7 +89,9 @@ export const TransactionRecord = styled.div`
     column-gap: 1rem;
     width: 100%;
     background: #ffffff;
-    transition: background 0.25s ease, transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    transition:
+        background 0.25s ease,
+        transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
     cursor: pointer;
     will-change: transform;
 `;
@@ -108,11 +110,21 @@ export const TransactionIcon = styled.div<{
     display: flex;
     justify-content: center;
     align-items: center;
-    width: ${fluidCalc('2rem', '3rem')};
-    height: ${fluidCalc('2rem', '3rem')};
+    width: ${fluidCalc('2.25rem', '3rem')};
+    height: ${fluidCalc('2.25rem', '3rem')};
     border-radius: 999px;
-    color: ${({ type }) => (type === 'deposit' ? '#075132' : type === 'withdrawal' ? '#961100' : '#56616B')};
-    background: ${({ type }) => (type === 'deposit' ? '#E3FCF2' : type === 'withdrawal' ? '#F9E3E0' : '#EFF1F6')};
+    color: ${({ type }) =>
+        type === 'deposit'
+            ? '#075132'
+            : type === 'withdrawal'
+              ? '#961100'
+              : '#56616B'};
+    background: ${({ type }) =>
+        type === 'deposit'
+            ? '#E3FCF2'
+            : type === 'withdrawal'
+              ? '#F9E3E0'
+              : '#EFF1F6'};
     flex-shrink: 0;
 `;
 
@@ -157,8 +169,14 @@ export const TransactionDetailSubtitle = styled.p<{
         'Segoe UI',
         Roboto,
         sans-serif;
-    color: (--subtitle-color, #56616B);
-    color: ${({ status }) => (status === 'successful' ? '#0EA163' : status === 'pending' ? '#A77A07' : '#FF3333')};
+    color: ${({ status }) =>
+        status === 'successful'
+            ? '#0EA163'
+            : status === 'pending'
+              ? '#A77A07'
+              : status === 'failed'
+                ? '#FF3333'
+                : '#56616B'};
     white-space: nowrap;
     font-size: 0.875rem;
     font-style: normal;
@@ -203,7 +221,7 @@ export const TransactionMetaDate = styled.div`
         'Segoe UI',
         Roboto,
         sans-serif;
-    color: #56616B;
+    color: #56616b;
     text-align: right;
     white-space: nowrap;
     font-size: 0.875rem;
