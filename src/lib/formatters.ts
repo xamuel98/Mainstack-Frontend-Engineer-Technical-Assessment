@@ -62,11 +62,3 @@ export const formatDate = (
 export const formatTransactionStatus = (status: string): string => {
     return status.charAt(0).toUpperCase() + status.slice(1).toLowerCase();
 };
-
-/**
- * Format transaction type with proper capitalization
- * @param type - Transaction type
- */
-export const formatTransactionType = (type: string): string => {
-    return type.charAt(0).toUpperCase() + type.slice(1).toLowerCase();
-};
