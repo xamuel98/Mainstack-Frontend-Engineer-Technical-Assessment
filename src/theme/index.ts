@@ -21,8 +21,8 @@ const tokens = defineTokens({
         },
     },
     fonts: {
-        heading: { value: 'Degular, system-ui, sans-serif' },
-        body: { value: 'Degular, system-ui, sans-serif' },
+        heading: { value: '"Degular", system-ui, sans-serif' },
+        body: { value: '"Degular", system-ui, sans-serif' },
     },
 });
 

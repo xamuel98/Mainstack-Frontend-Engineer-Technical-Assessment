@@ -9,7 +9,7 @@
  */
 
 import { useQuery, UseQueryResult } from '@tanstack/react-query';
-import { fetchWallet } from '@/lib/api';
+import { fetchWallet } from '@/lib';
 import { Wallet, ApiError } from '@/types';
 
 // Query key for wallet data

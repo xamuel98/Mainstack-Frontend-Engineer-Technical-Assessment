@@ -2,3 +2,4 @@
 
 export * from './AppHeader.styles';
 export * from './AppHeaderDropdown.styles';
+export * from './Shared.styles';

@@ -10,7 +10,7 @@ const MotionHStack = motion.create(HStack);
 
 export const AppHeaderContainer = styled(MotionBox)`
     position: fixed;
-    z-index: 1030;
+    z-index: 30;
     width: 100%;
     padding: 0;
 

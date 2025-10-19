@@ -1,5 +1,5 @@
-import styled from "@emotion/styled";
-import { fluidCalc } from "@/utils/fluidCalc";
+import styled from '@emotion/styled';
+import { fluidCalc } from '@/utils';
 
 export const TransactionsHeaderContainer = styled.div`
     display: flex;
@@ -108,11 +108,21 @@ export const TransactionIcon = styled.div<{
     display: flex;
     justify-content: center;
     align-items: center;
-    width: ${fluidCalc('2rem', '3rem')};
-    height: ${fluidCalc('2rem', '3rem')};
+    width: ${fluidCalc('2.25rem', '3rem')};
+    height: ${fluidCalc('2.25rem', '3rem')};
     border-radius: 999px;
-    color: ${({ type }) => (type === 'deposit' ? '#075132' : type === 'withdrawal' ? '#961100' : '#56616B')};
-    background: ${({ type }) => (type === 'deposit' ? '#E3FCF2' : type === 'withdrawal' ? '#F9E3E0' : '#EFF1F6')};
+    color: ${({ type }) =>
+        type === 'deposit'
+            ? '#075132'
+            : type === 'withdrawal'
+              ? '#961100'
+              : '#56616B'};
+    background: ${({ type }) =>
+        type === 'deposit'
+            ? '#E3FCF2'
+            : type === 'withdrawal'
+              ? '#F9E3E0'
+              : '#EFF1F6'};
     flex-shrink: 0;
 `;
 
@@ -157,8 +167,14 @@ export const TransactionDetailSubtitle = styled.p<{
         'Segoe UI',
         Roboto,
         sans-serif;
-    color: (--subtitle-color, #56616B);
-    color: ${({ status }) => (status === 'successful' ? '#0EA163' : status === 'pending' ? '#A77A07' : '#FF3333')};
+    color: ${({ status }) =>
+        status === 'successful'
+            ? '#0EA163'
+            : status === 'pending'
+              ? '#A77A07'
+              : status === 'failed'
+                ? '#FF3333'
+                : '#56616B'};
     white-space: nowrap;
     font-size: 0.875rem;
     font-style: normal;
