@@ -2,12 +2,20 @@
  * @description Router configuration for the Mainstack app
  * @author Sanni Samuel <samuelakintomiwa98@gmail.com>
  * @date 2025-10-17
- * @lastModified 2025-10-18
+ * @lastModified 2025-10-19
  * @version 1.0.0
  */
 
 import { MaterialSymbol } from 'react-material-symbols';
 import { NavItem } from '@/types';
+import {
+    BookingIcon,
+    CommunityIcon,
+    InvoiceIcon,
+    LinkInBioIcon,
+    MediaKitIcon,
+    StoreIcon,
+} from './icons';
 
 /**
  * @description Router configuration for the Mainstack app
@@ -57,22 +65,32 @@ export const MORE_APPS_NAVIGATION_ITEMS = [
     {
         title: 'Link in Bio',
         description: 'Manage your Link in Bio',
+        icon: LinkInBioIcon,
     },
     {
         title: 'Store',
         description: 'Manage your Store activities',
+        icon: StoreIcon,
     },
     {
         title: 'Media Kit',
         description: 'Manage your Media Kit',
+        icon: MediaKitIcon,
     },
     {
         title: 'Invoicing',
         description: 'Manage your Invoices',
+        icon: InvoiceIcon,
     },
     {
         title: 'Bookings',
         description: 'Manage your Bookings',
+        icon: BookingIcon,
+    },
+    {
+        title: 'Community',
+        description: 'Manage your Community',
+        icon: CommunityIcon,
     },
 ];
 

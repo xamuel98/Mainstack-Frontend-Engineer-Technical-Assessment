@@ -37,6 +37,7 @@ export const Tooltip = React.forwardRef<HTMLDivElement, TooltipProps>(
                             {...contentProps}
                             padding='10px 16px'
                             fontSize='md'
+                            borderRadius='8px'
                         >
                             {showArrow && (
                                 <ChakraTooltip.Arrow>

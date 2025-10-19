@@ -1,7 +1,13 @@
 import { Outlet } from 'react-router-dom';
-import { LayoutWrapper, LayoutContainer, LayoutOutlet } from './Layout.styles';
+import {
+    LayoutWrapper,
+    LayoutContainer,
+    LayoutOutlet,
+    LayoutBox,
+} from './Layout.styles';
 import { AppHeader } from '../AppHeader';
 import { AppToolbar } from '../AppToolbar';
+import { AppSwitcherAnchor } from '../AppSwitcherAnchor';
 
 const Layout = () => {
     return (
@@ -19,9 +25,14 @@ const Layout = () => {
                 }}
             >
                 <LayoutOutlet>
-                    <Outlet />
+                    <LayoutBox>
+                        <Outlet />
+                    </LayoutBox>
                 </LayoutOutlet>
             </LayoutContainer>
+
+            {/* Mainstack Apps Anchor */}
+            <AppSwitcherAnchor />
 
             {/* App Footer */}
             <AppToolbar />

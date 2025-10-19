@@ -39,7 +39,7 @@ export const AppHeaderInner = styled(MotionFlex)`
     @media (max-width: 768px) {
         height: 4.5rem;
         width: 100%;
-        height: 72px;
+        height: 4.5rem;
         border-radius: 0;
         border: none;
         padding: 1rem;
@@ -67,12 +67,11 @@ export const AppHeaderLogoImage = styled(Image)`
 
 export const AppHeaderNav = styled(Box)`
     flex-grow: 1;
-    display: flex;
-    justify-content: center;
     display: none;
+    justify-content: center;
 
     @media (min-width: 1024px) {
-        display: block;
+        display: flex;
     }
 `;
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import { MaterialSymbol } from 'react-material-symbols';
-import { Popover, For, Portal } from '@chakra-ui/react';
+import { Popover, For, Image, Portal } from '@chakra-ui/react';
 import { MORE_APPS_NAVIGATION_ITEMS } from '@/utils/routes';
 import { itemVariants } from '@/utils/animationVariants';
 import {
@@ -38,7 +38,14 @@ const MoreAppsDropdown = React.memo(
                                         whileTap={{ scale: 0.97 }}
                                     >
                                         <DropdownItemContent>
-                                            <DropdownItemIcon></DropdownItemIcon>
+                                            <DropdownItemIcon>
+                                                <Image
+                                                    src={item.icon}
+                                                    alt={item.title}
+                                                    boxSize={6}
+                                                    aspectRatio={1}
+                                                />
+                                            </DropdownItemIcon>
                                             <DropdownItemLabel>
                                                 <DropdownItemTitle>
                                                     {item.title}

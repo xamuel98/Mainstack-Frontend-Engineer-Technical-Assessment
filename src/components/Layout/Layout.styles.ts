@@ -33,3 +33,15 @@ export const LayoutOutlet = styled(MotionBox)`
     position: relative;
     will-change: opacity;
 `;
+
+export const LayoutBox = styled(Box)`
+    margin-top: 4rem;
+    min-height: calc(100vh - 4rem);
+    padding: 1.5rem;
+    background: #ffffff;
+
+    @media (max-width: 768px) {
+        margin-top: 4.5rem;
+        min-height: calc(100vh - 4.5rem);
+    }
+`;

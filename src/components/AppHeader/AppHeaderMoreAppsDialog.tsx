@@ -1,7 +1,15 @@
 import React, { useState } from 'react';
 import { MaterialSymbol } from 'react-material-symbols';
 import { motion } from 'framer-motion';
-import { Button, Dialog, For, Text, Portal } from '@chakra-ui/react';
+import {
+    Button,
+    Dialog,
+    For,
+    Text,
+    Image,
+    Portal,
+    HStack,
+} from '@chakra-ui/react';
 import { MORE_APPS_NAVIGATION_ITEMS } from '@/utils/routes';
 import {
     DropdownItemArrow,
@@ -36,20 +44,40 @@ const AppHeaderMoreAppsDialog = React.memo(() => {
             open={isMoreAppsDialogOpen}
             onOpenChange={details => setIsMoreAppsDialogOpen(details.open)}
             closeOnInteractOutside={false}
+            trapFocus={false}
             placement='bottom'
             motionPreset='slide-in-bottom'
         >
             <Dialog.Trigger asChild>
                 <Button
                     variant='solid'
-                    padding='0.5rem 0.875rem'
+                    bg='black'
                     fontSize='16px'
                     lineHeight='24px'
                     fontWeight={600}
                     rounded='full'
+                    padding={0}
+                    gap={0}
                 >
-                    {selectedApp}
-                    <MaterialSymbol icon='keyboard_arrow_down' size={20} />
+                    <HStack
+                        gap='1'
+                        align='center'
+                        padding='0.5rem 1.125rem 0.5rem 0.875rem'
+                        borderRight='1px solid'
+                        borderColor='gray.700'
+                    >
+                        <MaterialSymbol
+                            icon='widgets'
+                            fill
+                            size={24}
+                            weight={200}
+                        />
+                        <Text>Apps</Text>
+                    </HStack>
+                    <HStack padding='0.5rem 0.875rem'>
+                        <Text>{selectedApp}</Text>
+                        <MaterialSymbol icon='keyboard_arrow_down' size={20} />
+                    </HStack>
                 </Button>
             </Dialog.Trigger>
             <Portal>
@@ -102,7 +130,14 @@ const AppHeaderMoreAppsDialog = React.memo(() => {
                                     whileTap={{ scale: 0.97 }}
                                 >
                                     <DropdownItemContent>
-                                        <DropdownItemIcon></DropdownItemIcon>
+                                        <DropdownItemIcon>
+                                            <Image
+                                                src={item.icon}
+                                                alt={item.title}
+                                                boxSize={6}
+                                                aspectRatio={1}
+                                            />
+                                        </DropdownItemIcon>
                                         <DropdownItemLabel>
                                             <DropdownItemTitle>
                                                 {item.title}
