@@ -16,27 +16,27 @@ const BASE_URL = import.meta.env.VITE_API_BASE_URL;
 
 // Create axios instance with default configuration
 const apiClient: AxiosInstance = axios.create({
-  baseURL: BASE_URL,
-  headers: {
-    'Content-Type': 'application/json',
-  },
+    baseURL: BASE_URL,
+    headers: {
+        'Content-Type': 'application/json',
+    },
 });
 
 // Response interceptor for error handling
 apiClient.interceptors.response.use(
-  (response) => response,
-  (error: AxiosError) => {
-    const apiError: ApiError = {
-      message: error.message || 'An unexpected error occurred',
-      status: error.response?.status || 500,
-      code: error.code,
-    };
+    response => response,
+    (error: AxiosError) => {
+        const apiError: ApiError = {
+            message: error.message || 'An unexpected error occurred',
+            status: error.response?.status || 500,
+            code: error.code,
+        };
 
-    // Log error for debugging
-    console.error('API Error:', apiError);
+        // Log error for debugging
+        console.error('API Error:', apiError);
 
-    return Promise.reject(apiError);
-  }
+        return Promise.reject(apiError);
+    }
 );
 
 /**
@@ -44,12 +44,12 @@ apiClient.interceptors.response.use(
  * GET /user
  */
 export const fetchUser = async (): Promise<User> => {
-  try {
-    const response = await apiClient.get<User>('/user');
-    return response.data;
-  } catch (error) {
-    throw error as ApiError;
-  }
+    try {
+        const response = await apiClient.get<User>('/user');
+        return response.data;
+    } catch (error) {
+        throw error as ApiError;
+    }
 };
 
 /**
@@ -57,12 +57,12 @@ export const fetchUser = async (): Promise<User> => {
  * GET /wallet
  */
 export const fetchWallet = async (): Promise<Wallet> => {
-  try {
-    const response = await apiClient.get<Wallet>('/wallet');
-    return response.data;
-  } catch (error) {
-    throw error as ApiError;
-  }
+    try {
+        const response = await apiClient.get<Wallet>('/wallet');
+        return response.data;
+    } catch (error) {
+        throw error as ApiError;
+    }
 };
 
 /**
@@ -70,12 +70,12 @@ export const fetchWallet = async (): Promise<Wallet> => {
  * GET /transactions
  */
 export const fetchTransactions = async (): Promise<Transaction[]> => {
-  try {
-    const response = await apiClient.get<Transaction[]>('/transactions');
-    return response.data;
-  } catch (error) {
-    throw error as ApiError;
-  }
+    try {
+        const response = await apiClient.get<Transaction[]>('/transactions');
+        return response.data;
+    } catch (error) {
+        throw error as ApiError;
+    }
 };
 
 export default apiClient;

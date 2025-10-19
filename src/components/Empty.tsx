@@ -1,8 +1,12 @@
-import { cn } from '@/lib/utils'
+import { Flex, Text } from '@chakra-ui/react';
 
 // Empty component
 export default function Empty() {
-  return (
-    <div className={cn('flex h-full items-center justify-center')}>Empty</div>
-  )
+    return (
+        <Flex h='full' align='center' justify='center'>
+            <Text color='gray.500' fontSize='lg'>
+                Empty
+            </Text>
+        </Flex>
+    );
 }

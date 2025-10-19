@@ -16,21 +16,21 @@
  * @param locale - Locale for formatting (default: en-US)
  */
 export const formatMoney = (
-  amount: number,
-  currency: string = 'USD',
-  locale: string = 'en-US'
+    amount: number,
+    currency: string = 'USD',
+    locale: string = 'en-US'
 ): string => {
-  try {
-    return new Intl.NumberFormat(locale, {
-      style: 'currency',
-      currency,
-      minimumFractionDigits: 2,
-      maximumFractionDigits: 2,
-    }).format(amount);
-  } catch (error: unknown) {
-    // Fallback formatting if Intl.NumberFormat fails
-    return `$${amount.toFixed(2)}`;
-  }
+    try {
+        return new Intl.NumberFormat(locale, {
+            style: 'currency',
+            currency,
+            minimumFractionDigits: 2,
+            maximumFractionDigits: 2,
+        }).format(amount);
+    } catch (error: unknown) {
+        // Fallback formatting if Intl.NumberFormat fails
+        return `$${amount.toFixed(2)}`;
+    }
 };
 
 /**
@@ -39,20 +39,20 @@ export const formatMoney = (
  * @param options - Intl.DateTimeFormat options
  */
 export const formatDate = (
-  dateString: string | Date,
-  options: Intl.DateTimeFormatOptions = {
-    year: 'numeric',
-    month: 'short',
-    day: 'numeric',
-  }
+    dateString: string | Date,
+    options: Intl.DateTimeFormatOptions = {
+        year: 'numeric',
+        month: 'short',
+        day: 'numeric',
+    }
 ): string => {
-  try {
-    const date =
-      typeof dateString === 'string' ? new Date(dateString) : dateString;
-    return new Intl.DateTimeFormat('en-US', options).format(date);
-  } catch (error) {
-    return 'Invalid Date';
-  }
+    try {
+        const date =
+            typeof dateString === 'string' ? new Date(dateString) : dateString;
+        return new Intl.DateTimeFormat('en-US', options).format(date);
+    } catch (error) {
+        return 'Invalid Date';
+    }
 };
 
 /**
@@ -60,7 +60,7 @@ export const formatDate = (
  * @param status - Transaction status
  */
 export const formatTransactionStatus = (status: string): string => {
-  return status.charAt(0).toUpperCase() + status.slice(1).toLowerCase();
+    return status.charAt(0).toUpperCase() + status.slice(1).toLowerCase();
 };
 
 /**
@@ -68,5 +68,5 @@ export const formatTransactionStatus = (status: string): string => {
  * @param type - Transaction type
  */
 export const formatTransactionType = (type: string): string => {
-  return type.charAt(0).toUpperCase() + type.slice(1).toLowerCase();
+    return type.charAt(0).toUpperCase() + type.slice(1).toLowerCase();
 };

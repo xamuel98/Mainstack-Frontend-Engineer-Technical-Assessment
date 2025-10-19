@@ -1,0 +1,59 @@
+// Import mixins to use font-face mixin
+@use '../utils/mixins' as *;
+
+// Degular Font Declarations
+@include font-face('Degular', '../fonts/Degular/Degular-Medium', 500, normal);
+
+@include font-face(
+    'Degular',
+    '../fonts/Degular/Degular-Medium_Italic',
+    500,
+    italic
+);
+
+@include font-face('Degular', '../fonts/Degular/Degular-Semibold', 600, normal);
+
+@include font-face(
+    'Degular',
+    '../fonts/Degular/Degular-Semibold_Italic',
+    600,
+    italic
+);
+
+@include font-face('Degular', '../fonts/Degular/Degular-Bold', 700, normal);
+
+@include font-face(
+    'Degular',
+    '../fonts/Degular/Degular-Bold_Italic',
+    700,
+    italic
+);
+
+// Degular Display Font Declarations
+@include font-face(
+    'Degular Display',
+    '../fonts/Degular-Display/Degular_Display-Semibold',
+    600,
+    normal
+);
+
+@include font-face(
+    'Degular Display',
+    '../fonts/Degular-Display/Degular_Display-Semibold_Italic',
+    600,
+    italic
+);
+
+@include font-face(
+    'Degular Display',
+    '../fonts/Degular-Display/Degular_Display-Bold',
+    700,
+    normal
+);
+
+@include font-face(
+    'Degular Display',
+    '../fonts/Degular-Display/Degular_Display-Bold_Italic',
+    700,
+    italic
+);
