@@ -1,19 +1,18 @@
 import React from 'react';
+import { Container, Heading, Text } from '@chakra-ui/react';
 
 const Revenue: React.FC = () => {
-  return (
-    <div className='min-h-screen bg-gray-50 p-6'>
-      <div className='max-w-4xl mx-auto p-8 text-center'>
-        <h3 className='text-lg font-semibold text-gray-700 mb-2'>
-          Coming Soon
-        </h3>
-        <p className='text-gray-500'>
-          This page will contain revenue reports, income tracking, and financial
-          performance data.
-        </p>
-      </div>
-    </div>
-  );
+    return (
+        <Container maxW='4xl' p={8} textAlign='center'>
+            <Heading as='h3' size='lg' mb={2} color='gray.700'>
+                Coming Soon
+            </Heading>
+            <Text color='gray.500'>
+                This page will contain revenue reports, income tracking, and
+                financial performance data.
+            </Text>
+        </Container>
+    );
 };
 
 export default Revenue;
