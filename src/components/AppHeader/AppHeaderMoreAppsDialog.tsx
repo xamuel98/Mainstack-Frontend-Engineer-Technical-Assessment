@@ -161,7 +161,7 @@ const AppHeaderMoreAppsDialog = React.memo(() => {
                             <Button
                                 variant='subtle'
                                 bg='gray.50'
-                                rounded='999px'
+                                rounded='full'
                                 marginTop={4}
                                 fontSize='16px'
                                 fontWeight={600}
