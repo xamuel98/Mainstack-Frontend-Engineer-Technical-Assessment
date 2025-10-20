@@ -5,7 +5,19 @@ import tsconfigPaths from 'vite-tsconfig-paths';
 // https://vite.dev/config/
 export default defineConfig({
     build: {
-        sourcemap: 'hidden',
+        sourcemap: false,
+        rollupOptions: {
+            onwarn(warning, warn) {
+                // Suppress sourcemap warnings for node_modules
+                if (
+                    warning.code === 'SOURCEMAP_ERROR' &&
+                    warning.message.includes('node_modules')
+                ) {
+                    return;
+                }
+                warn(warning);
+            },
+        },
     },
     plugins: [
         react({
@@ -16,16 +28,4 @@ export default defineConfig({
         }),
         tsconfigPaths(),
     ],
-    // css: {
-    //     preprocessorOptions: {
-    //         scss: {
-    //             additionalData: ` // just variables loaded globally
-    //       '@use "utils/index" as *;' +
-    //       '@use "core/index.scss" as *;' +
-    //       '@use "theme/index.scss" as *;' +
-    //       '@use "components/index.scss" as *;'
-    //     `,
-    //         },
-    //     },
-    // },
 });
