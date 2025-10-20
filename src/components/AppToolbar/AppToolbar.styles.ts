@@ -18,15 +18,7 @@ export const AppToolbarItem = css`
     p {
         font-size: 0.875rem;
         font-weight: 600;
-        font-family:
-            'Degular Display',
-            'Degular',
-            system-ui,
-            -apple-system,
-            BlinkMacSystemFont,
-            'Segoe UI',
-            Roboto,
-            sans-serif;
+        font-family: 'Degular';
         color: inherit;
         transition: color 0.25s ease;
         overflow: hidden;

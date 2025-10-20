@@ -5,7 +5,7 @@ export const InteractiveFadeStyle = css`
     display: flex;
     align-items: center;
     justify-content: center;
-    font-family: 'Degular Display', 'Degular', system-ui, sans-serif;
+    font-family: 'Degular';
     font-weight: 600;
     font-size: 16px;
     border-radius: 9999px;

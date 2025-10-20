@@ -25,14 +25,7 @@ export const TransactionsHeaderText = styled.div`
 `;
 
 export const TransactionsHeaderTitle = styled.h2`
-    font-family:
-        'Degular',
-        system-ui,
-        -apple-system,
-        BlinkMacSystemFont,
-        'Segoe UI',
-        Roboto,
-        sans-serif;
+    font-family: 'Degular';
     color: #131316;
     white-space: nowrap;
     font-size: ${fluidCalc('1.25rem', '1.5rem')};
@@ -45,14 +38,7 @@ export const TransactionsHeaderTitle = styled.h2`
 
 export const TransactionsHeaderSubtitle = styled.p`
     align-self: stretch;
-    font-family:
-        'Degular',
-        system-ui,
-        -apple-system,
-        BlinkMacSystemFont,
-        'Segoe UI',
-        Roboto,
-        sans-serif;
+    font-family: 'Degular';
     white-space: nowrap;
     color: #56616b;
     text-align: left;
@@ -143,14 +129,7 @@ export const TransactionDetails = styled.div`
 `;
 
 export const TransactionDetailTitle = styled.h6`
-    font-family:
-        'Degular',
-        system-ui,
-        -apple-system,
-        BlinkMacSystemFont,
-        'Segoe UI',
-        Roboto,
-        sans-serif;
+    font-family: 'Degular';
     color: #131316;
     white-space: nowrap;
     font-size: 1rem;
@@ -163,14 +142,7 @@ export const TransactionDetailTitle = styled.h6`
 export const TransactionDetailSubtitle = styled.p<{
     status?: TransactionStatus;
 }>`
-    font-family:
-        'Degular',
-        system-ui,
-        -apple-system,
-        BlinkMacSystemFont,
-        'Segoe UI',
-        Roboto,
-        sans-serif;
+    font-family: 'Degular';
     color: ${({ status }) =>
         status === 'successful'
             ? '#0EA163'
@@ -196,14 +168,7 @@ export const TransactionMeta = styled.div`
 `;
 
 export const TransactionMetaAmount = styled.div`
-    font-family:
-        'Degular',
-        system-ui,
-        -apple-system,
-        BlinkMacSystemFont,
-        'Segoe UI',
-        Roboto,
-        sans-serif;
+    font-family: 'Degular';
     color: #131316;
     text-align: right;
     white-space: nowrap;
@@ -215,14 +180,7 @@ export const TransactionMetaAmount = styled.div`
 `;
 
 export const TransactionMetaDate = styled.div`
-    font-family:
-        'Degular',
-        system-ui,
-        -apple-system,
-        BlinkMacSystemFont,
-        'Segoe UI',
-        Roboto,
-        sans-serif;
+    font-family: 'Degular';
     color: #56616b;
     text-align: right;
     white-space: nowrap;
