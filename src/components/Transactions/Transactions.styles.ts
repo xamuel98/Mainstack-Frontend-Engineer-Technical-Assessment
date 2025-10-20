@@ -1,5 +1,6 @@
 import styled from '@emotion/styled';
 import { fluidCalc } from '@/utils';
+import { TransactionStatus, TransactionType } from '@/types';
 
 export const TransactionsHeaderContainer = styled.div`
     display: flex;
@@ -105,7 +106,7 @@ export const TransactionBody = styled.div`
 `;
 
 export const TransactionIcon = styled.div<{
-    type: 'deposit' | 'withdrawal';
+    type: TransactionType;
 }>`
     display: flex;
     justify-content: center;
@@ -160,7 +161,7 @@ export const TransactionDetailTitle = styled.h6`
 `;
 
 export const TransactionDetailSubtitle = styled.p<{
-    status?: 'successful' | 'pending' | 'failed';
+    status?: TransactionStatus;
 }>`
     font-family:
         'Degular',

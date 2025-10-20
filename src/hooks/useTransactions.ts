@@ -41,7 +41,10 @@ export const useFilteredTransactions = (filterState?: FilterState) => {
     const { data: transactions, isLoading, error } = useTransactions();
 
     const filteredTransactions = useMemo(() => {
-        if (!transactions || !filterState) return transactions || [];
+        if (!transactions || !Array.isArray(transactions)) return [];
+
+        // If no filter state, return all transactions
+        if (!filterState) return transactions;
 
         // Apply complex filtering using the utility functions
         const filtered = filterTransactions(transactions, filterState);

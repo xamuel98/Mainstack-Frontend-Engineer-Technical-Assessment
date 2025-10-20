@@ -175,6 +175,15 @@ const TransactionsHeader = React.memo<TransactionsHeaderProps>(
                             fontFamily='body'
                             onClick={handleFilterClick}
                             transition='all 0.2s ease'
+                            _hover={{
+                                bg: 'black',
+                                color: 'white',
+                            }}
+                            css={{
+                                '@media (max-width: 768px)': {
+                                    flex: 1,
+                                },
+                            }}
                         >
                             <Text>Filter</Text>
                             {activeFiltersCount > 0 && (
@@ -184,7 +193,6 @@ const TransactionsHeader = React.memo<TransactionsHeaderProps>(
                             )}
                             <MaterialSymbol
                                 icon='keyboard_arrow_down'
-                                color='#131316'
                                 size={20}
                             />
                         </Button>
@@ -202,13 +210,18 @@ const TransactionsHeader = React.memo<TransactionsHeaderProps>(
                             fontFamily='body'
                             onClick={onExport}
                             transition='all 0.2s ease'
+                            _hover={{
+                                bg: 'black',
+                                color: 'white',
+                            }}
+                            css={{
+                                '@media (max-width: 768px)': {
+                                    flex: 1,
+                                },
+                            }}
                         >
                             <Text>Export list</Text>
-                            <MaterialSymbol
-                                icon='download'
-                                color='#131316'
-                                size={20}
-                            />
+                            <MaterialSymbol icon='download' size={20} />
                         </Button>
                     </TransactionsHeaderActions>
                 </TransactionsHeaderContainer>

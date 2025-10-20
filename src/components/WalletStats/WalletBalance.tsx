@@ -146,7 +146,7 @@ export const WalletBalance: React.FC<WalletBalanceProps> = ({
                         lineHeight: `${fluidCalc('36px', '48px')}`,
                     }}
                 >
-                    {formatMoney(balance, 'USD', true)}
+                    {formatMoney(balance, null, true)}
                 </Text>
             </Box>
             <Button

@@ -39,6 +39,42 @@ interface CustomTooltipProps {
     label?: string;
 }
 
+const CustomTooltip: React.FC<CustomTooltipProps> = ({
+    active,
+    payload,
+    label,
+}) => {
+    if (active && payload && payload.length) {
+        return (
+            <Box
+                bg='white'
+                p={{ base: '8px', sm: '10px', md: '12px' }}
+                borderRadius={{ base: '6px', md: '8px' }}
+                boxShadow='0 4px 12px rgba(0, 0, 0, 0.1)'
+                border='1px solid #E5E7EB'
+                maxW={{ base: '200px', sm: '250px', md: '300px' }}
+                fontSize={{ base: '12px', md: '14px' }}
+            >
+                <Text
+                    fontSize={{ base: '10px', sm: '11px', md: '12px' }}
+                    color='#6B7280'
+                    mb={{ base: '2px', md: '4px' }}
+                >
+                    {formatDate(label as string)}
+                </Text>
+                <Text
+                    fontSize={{ base: '12px', sm: '13px', md: '14px' }}
+                    fontWeight='600'
+                    color='#131316'
+                >
+                    {formatMoney(payload[0]?.value || 0)}
+                </Text>
+            </Box>
+        );
+    }
+    return null;
+};
+
 const TransactionChart: React.FC<TransactionChartProps> = ({
     className,
     filterState,
@@ -88,24 +124,56 @@ const TransactionChart: React.FC<TransactionChartProps> = ({
     });
 
     const chartData: ChartDataPoint[] = useMemo(() => {
-        // If no transactions, generate a flat line at zero for the last 7 days
+        // If no transactions, generate a flat line at zero
         if (!transactions || transactions.length === 0) {
             const defaultData: ChartDataPoint[] = [];
-            const today = new Date();
 
-            for (let i = 6; i >= 0; i--) {
-                const date = new Date(today);
-                date.setDate(today.getDate() - i);
-                const dateString = date.toISOString().split('T')[0];
+            // Check if a specific date range is set
+            if (filterState?.dateFrom && filterState?.dateTo) {
+                // Generate flat line for the specified date range
+                const startDate = new Date(filterState.dateFrom);
+                const endDate = new Date(filterState.dateTo);
 
-                defaultData.push({
-                    date: dateString,
-                    amount: 0,
-                    formattedDate: formatDate(dateString, {
-                        month: 'short',
-                        day: 'numeric',
-                    }),
-                });
+                // Ensure we have valid dates
+                if (!isNaN(startDate.getTime()) && !isNaN(endDate.getTime())) {
+                    const currentDate = new Date(startDate);
+
+                    while (currentDate <= endDate) {
+                        const dateString = currentDate
+                            .toISOString()
+                            .split('T')[0];
+
+                        defaultData.push({
+                            date: dateString,
+                            amount: 0,
+                            formattedDate: formatDate(dateString, {
+                                month: 'short',
+                                day: 'numeric',
+                            }),
+                        });
+
+                        // Move to next day
+                        currentDate.setDate(currentDate.getDate() + 1);
+                    }
+                }
+            } else {
+                // Default to last 7 days if no date range is specified
+                const today = new Date();
+
+                for (let i = 6; i >= 0; i--) {
+                    const date = new Date(today);
+                    date.setDate(today.getDate() - i);
+                    const dateString = date.toISOString().split('T')[0];
+
+                    defaultData.push({
+                        date: dateString,
+                        amount: 0,
+                        formattedDate: formatDate(dateString, {
+                            month: 'short',
+                            day: 'numeric',
+                        }),
+                    });
+                }
             }
 
             return defaultData;
@@ -123,7 +191,7 @@ const TransactionChart: React.FC<TransactionChartProps> = ({
                 }
 
                 // Add amount for deposits, subtract for withdrawals
-                const amount =
+                const amount: number =
                     transaction.type === 'deposit'
                         ? transaction.amount
                         : -transaction.amount;
@@ -136,53 +204,23 @@ const TransactionChart: React.FC<TransactionChartProps> = ({
 
         // Convert to array and sort by date
         const sortedData = Object.entries(dailyTotals)
-            .map(([date, amount]) => ({
-                date,
-                amount,
-                formattedDate: formatDate(date, {
-                    month: 'short',
-                    day: 'numeric',
-                }),
-            }))
+            .map(
+                ([date, amount]): ChartDataPoint => ({
+                    date,
+                    amount: amount as number,
+                    formattedDate: formatDate(date, {
+                        month: 'short',
+                        day: 'numeric',
+                    }),
+                })
+            )
             .sort(
                 (a, b) =>
                     new Date(a.date).getTime() - new Date(b.date).getTime()
             );
 
         return sortedData;
-    }, [transactions]);
-
-    const CustomTooltip = ({ active, payload, label }: CustomTooltipProps) => {
-        if (active && payload && payload.length) {
-            return (
-                <Box
-                    bg='white'
-                    p={{ base: '8px', sm: '10px', md: '12px' }}
-                    borderRadius={{ base: '6px', md: '8px' }}
-                    boxShadow='0 4px 12px rgba(0, 0, 0, 0.1)'
-                    border='1px solid #E5E7EB'
-                    maxW={{ base: '200px', sm: '250px', md: '300px' }}
-                    fontSize={{ base: '12px', md: '14px' }}
-                >
-                    <Text
-                        fontSize={{ base: '10px', sm: '11px', md: '12px' }}
-                        color='#6B7280'
-                        mb={{ base: '2px', md: '4px' }}
-                    >
-                        {formatDate(label as string)}
-                    </Text>
-                    <Text
-                        fontSize={{ base: '12px', sm: '13px', md: '14px' }}
-                        fontWeight='600'
-                        color='#131316'
-                    >
-                        {formatMoney(payload[0]?.value || 0, 'USD')}
-                    </Text>
-                </Box>
-            );
-        }
-        return null;
-    };
+    }, [transactions, filterState]);
 
     if (isLoading) {
         return (
