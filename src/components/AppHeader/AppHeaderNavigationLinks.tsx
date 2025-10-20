@@ -13,9 +13,9 @@ const AppHeaderNavigationLinks = React.memo(
     ({ isAppsOpen }: AppHeaderNavigationLinksProps) => {
         return (
             <For each={APP_HEADER_NAVIGATION_ITEMS}>
-                {item => (
+                {(item, i) => (
                     <motion.div
-                        key={item.href}
+                        key={i}
                         variants={linkVariants}
                         initial='hidden'
                         animate='show'

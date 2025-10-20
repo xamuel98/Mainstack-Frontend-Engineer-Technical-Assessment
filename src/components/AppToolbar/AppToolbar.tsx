@@ -8,9 +8,9 @@ const AppToolbar = React.memo(() => {
     return (
         <AppToolbarContainer>
             <For each={APP_HEADER_NAVIGATION_ITEMS}>
-                {item => (
+                {(item, i) => (
                     <NavLink
-                        key={item.href}
+                        key={i}
                         to={item.href}
                         className={({ isActive }) =>
                             `ms-app-toolbar__item ${isActive ? 'active' : ''}`

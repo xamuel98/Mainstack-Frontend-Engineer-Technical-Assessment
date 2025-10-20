@@ -8,8 +8,9 @@ const AppSwitcherAnchor = React.memo(() => {
     return (
         <AppSwitcherAnchorContainer>
             <For each={MORE_APPS_NAVIGATION_ITEMS}>
-                {item => (
+                {(item, i) => (
                     <Tooltip
+                        key={i}
                         positioning={{ placement: 'right-end' }}
                         content={item.title}
                     >

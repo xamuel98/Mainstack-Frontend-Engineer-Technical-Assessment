@@ -13,6 +13,7 @@ export const AppHeaderContainer = styled(MotionBox)`
     z-index: 30;
     width: 100%;
     padding: 0;
+    background: #ffffff;
 
     @media (min-width: 768px) {
         padding: 1rem 1rem 0.75rem;

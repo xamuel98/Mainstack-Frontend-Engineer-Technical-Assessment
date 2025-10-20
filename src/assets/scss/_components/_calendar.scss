@@ -96,8 +96,11 @@
     margin: 0 !important;
 }
 
-.p-datepicker .p-datepicker-header .p-datepicker-title .p-datepicker-year::before {
-    content: ", ";
+.p-datepicker
+    .p-datepicker-header
+    .p-datepicker-title
+    .p-datepicker-year::before {
+    content: ', ';
     margin-left: 2px;
 }
 
@@ -174,7 +177,11 @@
 }
 
 /* Today's date when highlighted - highest specificity */
-.p-datepicker .p-datepicker-calendar tbody td.p-datepicker-today > span.p-highlight {
+.p-datepicker
+    .p-datepicker-calendar
+    tbody
+    td.p-datepicker-today
+    > span.p-highlight {
     background: #131316 !important;
     color: #ffffff !important;
     font-weight: 600 !important;
@@ -190,7 +197,11 @@
     color: #d1d5db !important;
 }
 
-.p-datepicker .p-datepicker-calendar tbody td.p-datepicker-other-month > span:hover {
+.p-datepicker
+    .p-datepicker-calendar
+    tbody
+    td.p-datepicker-other-month
+    > span:hover {
     background: #f9fafb !important;
     color: #9ca3af !important;
 }

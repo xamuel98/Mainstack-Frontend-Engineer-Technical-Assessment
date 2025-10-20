@@ -1,13 +1,8 @@
 import React from 'react';
 import { MaterialSymbol } from 'react-material-symbols';
-import {
-    IconButton,
-    Avatar,
-    Popover,
-    Flex,
-    SkeletonCircle,
-} from '@chakra-ui/react';
+import { IconButton, Avatar, Popover, Flex } from '@chakra-ui/react';
 import { User } from '@/types';
+import SkeletonBox from '@/components/ui/Skeleton/SkeletonBox';
 import {
     UserActionsDropdown,
     AppHeaderActionGroup,
@@ -70,7 +65,11 @@ const AppHeaderActions = React.memo(
                         >
                             <Flex alignItems='center' gapX={2}>
                                 {isLoadingUser ? (
-                                    <SkeletonCircle size={8} />
+                                    <SkeletonBox
+                                        width='32px'
+                                        height='32px'
+                                        borderRadius='full'
+                                    />
                                 ) : (
                                     <Avatar.Root
                                         size='xs'

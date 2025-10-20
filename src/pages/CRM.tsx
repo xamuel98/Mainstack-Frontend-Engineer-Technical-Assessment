@@ -5,7 +5,7 @@ const CRM: React.FC = () => {
     return (
         <Container maxW='4xl' p={8} textAlign='center'>
             <Heading as='h3' size='lg' mb={2} color='gray.700'>
-                Coming Soon
+                CRM Page Coming Soon
             </Heading>
             <Text color='gray.500'>
                 This page will contain customer data, user management, and

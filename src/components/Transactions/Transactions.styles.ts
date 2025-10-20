@@ -4,11 +4,11 @@ import { fluidCalc } from '@/utils';
 export const TransactionsHeaderContainer = styled.div`
     display: flex;
     align-items: flex-start;
-    background: #FFFFFF;
+    background: #ffffff;
     width: 100%;
     padding-bottom: 1.5rem;
     column-gap: 1.5rem;
-    border-bottom: 1px solid #EFF1F6;
+    border-bottom: 1px solid #eff1f6;
 
     @media (max-width: 480px) {
         flex-direction: column;
@@ -53,7 +53,7 @@ export const TransactionsHeaderSubtitle = styled.p`
         Roboto,
         sans-serif;
     white-space: nowrap;
-    color: #56616B;
+    color: #56616b;
     text-align: left;
     font-size: 0.875rem;
     font-style: normal;
@@ -89,7 +89,9 @@ export const TransactionRecord = styled.div`
     column-gap: 1rem;
     width: 100%;
     background: #ffffff;
-    transition: background 0.25s ease, transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    transition:
+        background 0.25s ease,
+        transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
     cursor: pointer;
     will-change: transform;
 `;
@@ -136,6 +138,7 @@ export const TransactionDetails = styled.div`
     flex-direction: column;
     align-items: flex-start;
     flex: 1 0 0%;
+    row-gap: 0.5625rem;
 `;
 
 export const TransactionDetailTitle = styled.h6`
@@ -188,7 +191,7 @@ export const TransactionMeta = styled.div`
     flex-direction: column;
     justify-content: flex-end;
     align-items: flex-end;
-    column-gap: 0.25rem;
+    row-gap: 0.25rem;
 `;
 
 export const TransactionMetaAmount = styled.div`
@@ -219,7 +222,7 @@ export const TransactionMetaDate = styled.div`
         'Segoe UI',
         Roboto,
         sans-serif;
-    color: #56616B;
+    color: #56616b;
     text-align: right;
     white-space: nowrap;
     font-size: 0.875rem;

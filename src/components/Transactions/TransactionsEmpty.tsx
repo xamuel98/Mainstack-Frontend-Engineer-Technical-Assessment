@@ -1,7 +1,13 @@
 import React from 'react';
 import { Box, Button, VStack, Text } from '@chakra-ui/react';
 
-const TransactionsEmpty: React.FC = () => {
+interface TransactionsEmptyProps {
+    onClearFilters?: () => void;
+}
+
+const TransactionsEmpty: React.FC<TransactionsEmptyProps> = ({
+    onClearFilters,
+}) => {
     return (
         <Box
             display='flex'
@@ -116,6 +122,7 @@ const TransactionsEmpty: React.FC = () => {
                     fontSize='16px'
                     fontWeight={600}
                     fontFamily='body'
+                    onClick={onClearFilters}
                 >
                     Clear
                 </Button>

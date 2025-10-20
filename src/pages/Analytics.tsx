@@ -5,7 +5,7 @@ const Analytics: React.FC = () => {
     return (
         <Container maxW='4xl' p={8} textAlign='center'>
             <Heading as='h3' size='lg' mb={2} color='gray.700'>
-                Coming Soon
+                Analytics Page Coming Soon
             </Heading>
             <Text color='gray.500'>
                 This page will contain charts, graphs, and detailed analytics

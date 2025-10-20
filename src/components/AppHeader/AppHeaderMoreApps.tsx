@@ -21,8 +21,6 @@ const AppHeaderMoreApps = React.memo(
 
         const handleSelectApp = (app: string) => {
             setSelectedApp(app);
-            // Leave dropdown open when app options are clicked.
-            // So the selected app can show on the App menu button
             // setIsDropdownOpen(false);
             onOpenChange(false);
         };

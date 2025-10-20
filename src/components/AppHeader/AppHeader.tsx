@@ -1,17 +1,11 @@
 /** @jsxImportSource @emotion/react */
 import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
-import {
-    Avatar,
-    HStack,
-    SkeletonCircle,
-    Portal,
-    Dialog,
-    Button,
-} from '@chakra-ui/react';
+import { Avatar, HStack, Portal, Dialog, Button } from '@chakra-ui/react';
 import { motion } from 'framer-motion';
 import { useUser, useUserFullName, useAutoCloseMobileDialog } from '@/hooks';
 import MainstackLogo from '@/assets/svgs/mainstack-logo.svg';
+import SkeletonBox from '@/components/ui/Skeleton/SkeletonBox';
 import {
     headerVariants,
     mainstackAppsDialogContainerVariants,
@@ -73,14 +67,17 @@ const AppHeader = React.memo(() => {
                 >
                     {/* User Avatar */}
                     {isLoadingUser ? (
-                        <SkeletonCircle size={11} />
+                        <SkeletonBox
+                            width='40px'
+                            height='40px'
+                            borderRadius='full'
+                        />
                     ) : (
                         <Dialog.Root
                             open={isMobileUserMenuOpen}
                             onOpenChange={details =>
                                 setIsMobileUserMenuOpen(details.open)
                             }
-                            closeOnInteractOutside={false}
                             trapFocus={false}
                             placement='bottom'
                             motionPreset='slide-in-bottom'

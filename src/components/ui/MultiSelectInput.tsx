@@ -1,8 +1,6 @@
 import React from 'react';
 import { MaterialSymbol } from 'react-material-symbols';
 import { MultiSelect, MultiSelectChangeEvent } from 'primereact/multiselect';
-import 'primereact/resources/themes/lara-light-cyan/theme.css';
-import 'primereact/resources/primereact.min.css';
 
 interface Option {
     value: string;
