@@ -1,57 +1,286 @@
-# React + TypeScript + Vite
+# Mainstack Frontend Engineer Technical Assessment
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern React application built for transaction management and financial analytics, featuring a comprehensive dashboard with wallet statistics, transaction filtering, and interactive charts.
 
-Currently, two official plugins are available:
+## 🚀 Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### Core Functionality
 
-## Expanding the ESLint configuration
+- **Transaction Management**: View, filter, and export transaction records
+- **Wallet Statistics**: Real-time wallet balance, revenue, and payout tracking
+- **Interactive Charts**: Visual representation of transaction data over time
+- **Advanced Filtering**: Filter transactions by date range, type, and status
+- **Responsive Design**: Optimized for desktop, tablet, and mobile devices
+- **Data Export**: Export filtered transaction data to CSV format
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+### Key Components
 
-```js
-export default tseslint.config({
-    extends: [
-        // Remove ...tseslint.configs.recommended and replace with this
-        ...tseslint.configs.recommendedTypeChecked,
-        // Alternatively, use this for stricter rules
-        ...tseslint.configs.strictTypeChecked,
-        // Optionally, add this for stylistic rules
-        ...tseslint.configs.stylisticTypeChecked,
-    ],
-    languageOptions: {
-        // other options...
-        parserOptions: {
-            project: ['./tsconfig.node.json', './tsconfig.app.json'],
-            tsconfigRootDir: import.meta.dirname,
-        },
-    },
-});
+- **Transaction Chart**: Interactive line chart showing transaction trends with date range support
+- **Wallet Stats**: Comprehensive wallet balance and financial metrics display
+- **Transaction List**: Paginated, filterable transaction records with detailed metadata
+- **Filter Panel**: Advanced filtering interface with date pickers and multi-select options
+- **App Header**: Navigation and user management interface
+
+## 🛠️ Tech Stack
+
+### Frontend Framework
+
+- **React 18** - Modern React with hooks and concurrent features
+- **TypeScript** - Type-safe development with full IntelliSense support
+- **Vite** - Fast build tool and development server
+
+### UI & Styling
+
+- **Chakra UI** - Component library for consistent design system
+- **Emotion** - CSS-in-JS styling solution
+- **Framer Motion** - Animation library for smooth interactions
+- **React Material Symbols** - Material Design icons
+
+### Data Management
+
+- **TanStack React Query** - Server state management and caching
+- **Axios** - HTTP client for API communication
+- **React Router DOM** - Client-side routing
+
+### Charts & Visualization
+
+- **Recharts** - Composable charting library for React
+- **PrimeReact** - Additional UI components for data display
+
+### Development & Testing
+
+- **Vitest** - Fast unit testing framework
+- **Testing Library** - React component testing utilities
+- **ESLint** - Code linting and quality enforcement
+- **Prettier** - Code formatting
+- **Husky** - Git hooks for pre-commit checks
+
+## 📋 Prerequisites
+
+Before running this project, ensure you have the following installed:
+
+- **Node.js** (version 18 or higher)
+- **npm**, **yarn**, or **pnpm** package manager
+- **Git** for version control
+
+## 🚀 Getting Started
+
+### 1. Clone the Repository
+
+```bash
+git clone <repository-url>
+cd Mainstack-Technical-Assessment
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+### 2. Install Dependencies
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x';
-import reactDom from 'eslint-plugin-react-dom';
+```bash
+# Using npm
+npm install
 
-export default tseslint.config({
-    extends: [
-        // other configs...
-        // Enable lint rules for React
-        reactX.configs['recommended-typescript'],
-        // Enable lint rules for React DOM
-        reactDom.configs.recommended,
-    ],
-    languageOptions: {
-        // other options...
-        parserOptions: {
-            project: ['./tsconfig.node.json', './tsconfig.app.json'],
-            tsconfigRootDir: import.meta.dirname,
-        },
-    },
-});
+# Using yarn
+yarn install
+
+# Using pnpm
+pnpm install
 ```
+
+### 3. Environment Setup
+
+Create a `.env` file in the root directory (use `.env.example` as reference):
+
+```bash
+cp .env.example .env
+```
+
+### 4. Start Development Server
+
+```bash
+npm run dev
+```
+
+The application will be available at `http://localhost:5174`
+
+## 📜 Available Scripts
+
+### Development
+
+- `npm run dev` - Start development server with hot reload
+- `npm run preview` - Preview production build locally
+
+### Building
+
+- `npm run build` - Create production build
+- `npm run check` - Type check without emitting files
+
+### Testing
+
+- `npm test` - Run all tests once
+- `npm run test:watch` - Run tests in watch mode
+- `npm run test:coverage` - Run tests with coverage report
+
+### Code Quality
+
+- `npm run lint` - Run ESLint
+- `npm run lint:fix` - Fix ESLint issues automatically
+- `npm run format` - Format code with Prettier
+- `npm run format:check` - Check code formatting
+
+## 📁 Project Structure
+
+```
+src/
+├── components/           # Reusable UI components
+│   ├── AppHeader/       # Application header and navigation
+│   ├── Layout/          # Page layout components
+│   ├── Transactions/    # Transaction-related components
+│   ├── WalletStats/     # Wallet statistics components
+│   └── ui/              # Generic UI components
+├── hooks/               # Custom React hooks
+│   ├── useTransactions.ts
+│   ├── useWallet.ts
+│   └── useUser.ts
+├── lib/                 # Utility libraries
+│   ├── api.ts          # API client configuration
+│   ├── formatters.ts   # Data formatting utilities
+│   └── csvExport.ts    # CSV export functionality
+├── pages/              # Page components
+│   ├── Revenue.tsx     # Main dashboard page
+│   ├── Analytics.tsx   # Analytics page
+│   └── CRM.tsx         # CRM page
+├── types/              # TypeScript type definitions
+├── utils/              # Utility functions
+│   ├── transactionFilters.ts
+│   ├── dateRangeCalculator.ts
+│   └── fluidCalc.ts
+├── __tests__/          # Test files
+└── theme/              # Chakra UI theme configuration
+```
+
+## 🔌 API Integration
+
+The application integrates with the Mainstack API endpoints:
+
+### Endpoints
+
+- `GET /user` - Fetch user profile information
+- `GET /wallet` - Retrieve wallet balance and statistics
+- `GET /transactions` - Get transaction history
+
+### Data Flow
+
+1. **React Query** manages server state and caching
+2. **Custom hooks** abstract API calls and provide loading states
+3. **TypeScript interfaces** ensure type safety for API responses
+4. **Error boundaries** handle API failures gracefully
+
+## 🧪 Testing
+
+The project includes comprehensive testing setup:
+
+### Test Structure
+
+- **Component Tests**: UI component behavior and rendering
+- **Hook Tests**: Custom hook functionality and state management
+- **Utility Tests**: Helper function validation
+- **Integration Tests**: Component interaction testing
+
+### Running Tests
+
+```bash
+# Run all tests
+npm test
+
+# Watch mode for development
+npm run test:watch
+
+# Generate coverage report
+npm run test:coverage
+```
+
+## 🎨 Key Features Deep Dive
+
+### Transaction Chart
+
+- Interactive line chart built with Recharts
+- Supports date range filtering
+- Displays flat line for periods with no transactions
+- Responsive design with breakpoint-specific styling
+- Real-time data updates
+
+### Wallet Statistics
+
+- Real-time balance tracking
+- Revenue and payout calculations
+- Percentage-based insights
+- Loading states and error handling
+- Responsive card layout
+
+### Advanced Filtering
+
+- Date range picker with preset options
+- Multi-select transaction type filtering
+- Status-based filtering (successful, pending, failed)
+- Real-time filter application
+- Filter state persistence
+
+### Data Export
+
+- CSV export functionality
+- Filtered data export
+- Formatted transaction data
+- Download with proper file naming
+
+## 🔧 Development Guidelines
+
+### Code Style
+
+- Follow TypeScript best practices
+- Use functional components with hooks
+- Implement proper error boundaries
+- Write comprehensive tests for new features
+- Follow the established folder structure
+
+### Performance Considerations
+
+- React Query for efficient data caching
+- Memoization for expensive calculations
+- Lazy loading for route-based code splitting
+- Optimized re-renders with proper dependencies
+
+## 🚀 Deployment
+
+### Build for Production
+
+```bash
+npm run build
+```
+
+The build artifacts will be stored in the `dist/` directory.
+
+### Deployment Options
+
+- **Vercel**: Optimized for React applications
+- **Netlify**: Static site hosting with CI/CD
+- **AWS S3 + CloudFront**: Scalable static hosting
+- **Docker**: Containerized deployment
+
+## 🤝 Contributing
+
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
+
+## 📝 License
+
+This project is part of the Mainstack Frontend Engineer Technical Assessment.
+
+## 🔗 Links
+
+- [Mainstack](https://mainstack.co)
+- [React Documentation](https://react.dev)
+- [Chakra UI](https://chakra-ui.com)
+- [Vite](https://vitejs.dev)
+- [Vitest](https://vitest.dev)
