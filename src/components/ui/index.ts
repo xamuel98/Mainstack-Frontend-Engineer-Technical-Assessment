@@ -1,8 +1,8 @@
 // Export all UI components
 
-export { Button } from './Button';
 export { Loader, PageLoader, InlineLoader } from './Loader';
-export { Tooltip } from './tooltip';
+export { Tooltip } from './Tooltip';
+export { InfoTooltip } from './InfoTooltip';
 export { default as CalendarInput } from './CalendarInput';
 export { default as MultiSelectInput } from './MultiSelectInput';
-export { Toaster } from './toaster';
+export { Toaster } from './Toaster';

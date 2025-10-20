@@ -73,14 +73,18 @@
     transition: transform 0.2s ease !important;
 }
 
-.p-multiselect.p-multiselect-open .p-multiselect-trigger .p-multiselect-trigger-icon {
+.p-multiselect.p-multiselect-open
+    .p-multiselect-trigger
+    .p-multiselect-trigger-icon {
     transform: rotate(180deg) !important;
 }
 
 .p-multiselect-panel {
     border: 1px solid #f7f8f9 !important;
     border-radius: 12px !important;
-    box-shadow: 0 4px 8px 0 rgba(92, 115, 131, 0.08), 0 6px 12px 0 rgba(92, 115, 131, 0.08) !important;
+    box-shadow:
+        0 4px 8px 0 rgba(92, 115, 131, 0.08),
+        0 6px 12px 0 rgba(92, 115, 131, 0.08) !important;
     background: #ffffff !important;
     margin-top: 8px !important;
     padding: 8px !important;
@@ -133,8 +137,8 @@
 }
 
 .p-multiselect-panel .p-multiselect-item .p-checkbox {
-    width: 22px !important;
-    height: 22px !important;
+    width: 20px !important;
+    height: 20px !important;
     // border: 1px solid #d1d5db !important;
     // border-radius: 2px !important;
     background: #ffffff !important;
@@ -146,7 +150,9 @@
 
 .p-checkbox .p-checkbox-box {
     border: 1.5px solid #d1d5db !important;
-    border-radius: 2px !important;
+    border-radius: 3px !important;
+    width: 20px !important;
+    height: 20px !important;
 }
 
 .p-checkbox.p-highlight .p-checkbox-box {

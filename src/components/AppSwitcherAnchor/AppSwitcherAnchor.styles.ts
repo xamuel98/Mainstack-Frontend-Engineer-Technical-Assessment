@@ -8,7 +8,7 @@ export const AppSwitcherAnchorContainer = styled(VStack)`
     align-items: flex-start;
     left: 1rem;
     height: auto;
-    z-index: 1000;
+    z-index: 30;
     padding: 0.25rem;
     row-gap: 0.5rem;
     border-radius: 999px;

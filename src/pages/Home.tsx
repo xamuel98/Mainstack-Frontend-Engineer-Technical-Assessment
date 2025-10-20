@@ -4,7 +4,7 @@ import Empty from '@/components/Empty';
 
 const Home: React.FC = () => {
     return (
-        <Box>
+        <Box p={6}>
             <Empty />
         </Box>
     );

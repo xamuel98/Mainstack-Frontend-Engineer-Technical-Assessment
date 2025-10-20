@@ -34,9 +34,9 @@ const DateRangePills: React.FC<DateRangePillsProps> = ({
                     }}
                 >
                     <HStack gapX={3} minW='max-content'>
-                        {options.map(option => (
+                        {options.map((option, i) => (
                             <Button
-                                key={option.value}
+                                key={i}
                                 size='sm'
                                 variant={
                                     selectedValue === option.value

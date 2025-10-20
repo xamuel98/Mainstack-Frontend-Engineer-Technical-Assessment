@@ -35,9 +35,9 @@ export const LayoutOutlet = styled(MotionBox)`
 `;
 
 export const LayoutBox = styled(Box)`
-    margin-top: 5.75rem;
+    margin: 5.75rem 0 10rem;
     min-height: calc(100vh - 5.75rem);
-    padding: 1.5rem 0.5rem;
+    padding: 64px 0.5rem 1.5rem;
     background: #ffffff;
 
     @media (max-width: 768px) {

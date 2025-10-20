@@ -25,10 +25,10 @@ const MoreAppsDropdown = React.memo(
                     <MoreAppsDropdownSection asChild>
                         <Popover.Content>
                             <For each={MORE_APPS_NAVIGATION_ITEMS}>
-                                {(item, index) => (
+                                {(item, i) => (
                                     <MoreAppsDropdownItemButton
-                                        key={item.title}
-                                        custom={index}
+                                        key={i}
+                                        custom={i}
                                         onClick={() => onSelectApp(item.title)}
                                         variants={itemVariants}
                                         initial='hidden'

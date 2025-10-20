@@ -97,8 +97,8 @@ const UserActionsDropdown = React.memo(
                         }}
                     >
                         <For each={USER_MENU_ACTIONS_ITEMS}>
-                            {item => (
-                                <DropdownItemLink key={item.name} to='/'>
+                            {(item, i) => (
+                                <DropdownItemLink key={i} to='/'>
                                     {item.icon && (
                                         <item.icon
                                             icon={item.material_icon_name}
@@ -166,8 +166,8 @@ const UserActionsDropdown = React.memo(
 
                             {/* User Menu Links */}
                             <For each={USER_MENU_ACTIONS_ITEMS}>
-                                {item => (
-                                    <DropdownItemLink key={item.name} to='/'>
+                                {(item, i) => (
+                                    <DropdownItemLink key={i} to='/'>
                                         {item.icon && (
                                             <item.icon
                                                 icon={item.material_icon_name}

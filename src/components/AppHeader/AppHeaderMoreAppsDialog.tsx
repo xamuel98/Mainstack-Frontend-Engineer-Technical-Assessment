@@ -51,7 +51,6 @@ const AppHeaderMoreAppsDialog = React.memo(() => {
         <Dialog.Root
             open={isMoreAppsDialogOpen}
             onOpenChange={details => setIsMoreAppsDialogOpen(details.open)}
-            closeOnInteractOutside={false}
             trapFocus={false}
             placement='bottom'
             motionPreset='slide-in-bottom'
@@ -67,21 +66,6 @@ const AppHeaderMoreAppsDialog = React.memo(() => {
                     padding={0}
                     gap={0}
                 >
-                    <HStack
-                        gap='1'
-                        align='center'
-                        padding='0.5rem 1.125rem 0.5rem 0.875rem'
-                        borderRight='1px solid'
-                        borderColor='gray.700'
-                    >
-                        <MaterialSymbol
-                            icon='widgets'
-                            fill
-                            size={24}
-                            weight={200}
-                        />
-                        <Text>Apps</Text>
-                    </HStack>
                     <HStack padding='0.5rem 0.875rem'>
                         <Text>{selectedApp}</Text>
                         <MaterialSymbol icon='keyboard_arrow_down' size={20} />
@@ -126,7 +110,7 @@ const AppHeaderMoreAppsDialog = React.memo(() => {
                         <For each={MORE_APPS_NAVIGATION_ITEMS}>
                             {(item, i) => (
                                 <MoreAppsDropdownItemButton
-                                    key={item.title}
+                                    key={i}
                                     custom={i}
                                     onClick={() => onSelectApp(item.title)}
                                     variants={mainstackAppsDialogItemVariants}

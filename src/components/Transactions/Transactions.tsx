@@ -1,6 +1,6 @@
 import React from 'react';
 import { MaterialSymbol } from 'react-material-symbols';
-import { VStack, Spinner } from '@chakra-ui/react';
+import { VStack } from '@chakra-ui/react';
 import {
     useTransactions,
     useFilteredTransactions,
@@ -32,11 +32,12 @@ import {
 interface TransactionsProps {
     filterState?: FilterState;
     onFilterChange?: (filters: FilterState) => void;
+    onClearFilters?: () => void;
 }
 
 const Transactions = React.memo<TransactionsProps>(
-    ({ filterState, onFilterChange }) => {
-        const { transactions, isLoading, error, filteredCount } =
+    ({ filterState, onFilterChange, onClearFilters }) => {
+        const { transactions, error, filteredCount } =
             useFilteredTransactions(filterState);
         const { refetch } = useTransactions(); // For error retry functionality
 
@@ -47,21 +48,10 @@ const Transactions = React.memo<TransactionsProps>(
             }
         }, [transactions]);
 
-        // Loading state
-        if (isLoading) {
-            return (
-                <VStack md={{ gapY: '65px' }} gapY={'45px'}>
-                    <VStack py={8}>
-                        <Spinner size='xl' color='black' borderWidth='5px' />
-                    </VStack>
-                </VStack>
-            );
-        }
-
         // Error state
         if (error) {
             return (
-                <VStack md={{ gapY: '65px' }} gapY={'45px'}>
+                <VStack md={{ gapY: 8 }} gapY='45px' width='100%'>
                     <TransactionsHeader onExport={handleExport} />
                     <TransactionsError error={error} onRetry={refetch} />
                 </VStack>
@@ -71,9 +61,9 @@ const Transactions = React.memo<TransactionsProps>(
         // Empty state
         if (!transactions || transactions.length === 0) {
             return (
-                <VStack md={{ gapY: '65px' }} gapY={'45px'}>
+                <VStack md={{ gapY: 8 }} gapY='45px' width='100%'>
                     <TransactionsHeader onExport={handleExport} />
-                    <TransactionsEmpty />
+                    <TransactionsEmpty onClearFilters={onClearFilters} />
                 </VStack>
             );
         }
@@ -91,7 +81,7 @@ const Transactions = React.memo<TransactionsProps>(
         };
 
         return (
-            <VStack md={{ gapY: 8 }} gapY={6}>
+            <VStack md={{ gapY: 8 }} gapY='45px' width='100%'>
                 {/* Transactions Header */}
                 <TransactionsHeader
                     transactionCount={filteredCount}

@@ -16,7 +16,7 @@ import {
     dateRangeOptions,
     transactionTypeOptions,
     transactionStatusOptions,
-} from '../../../constants/filterOptions';
+} from '@/constants';
 
 interface FilterPanelProps {
     isOpen: boolean;
@@ -97,42 +97,54 @@ const FilterPanel: React.FC<FilterPanelProps> = ({
     return (
         <Portal>
             <AnimatePresence>
-                <FilterPanelOverlay isOpen={isOpen} onClose={onClose} />
-                <FilterPanelContent isOpen={isOpen}>
-                    <FilterPanelHeader onClose={onClose} />
-
-                    <DateRangePills
-                        options={dateRangeOptions}
-                        selectedValue={selectedDateRange}
-                        onSelectionChange={handleDateRangeSelection}
-                    />
-
-                    <Box flex={1} overflowY='auto'>
-                        <DateRangeSection
-                            dateFrom={filters.dateFrom}
-                            dateTo={filters.dateTo}
-                            onDateFromChange={handleDateFromChange}
-                            onDateToChange={handleDateToChange}
+                {isOpen && (
+                    <>
+                        <FilterPanelOverlay
+                            key='overlay'
+                            isOpen={isOpen}
+                            onClose={onClose}
                         />
+                        <FilterPanelContent key='content' isOpen={isOpen}>
+                            <FilterPanelHeader onClose={onClose} />
 
-                        <TransactionTypeSection
-                            options={transactionTypeOptions}
-                            selectedValues={filters.transactionType}
-                            onSelectionChange={handleTransactionTypeChange}
-                        />
+                            <DateRangePills
+                                options={dateRangeOptions}
+                                selectedValue={selectedDateRange}
+                                onSelectionChange={handleDateRangeSelection}
+                            />
 
-                        <TransactionStatusSection
-                            options={transactionStatusOptions}
-                            selectedValues={filters.transactionStatus}
-                            onSelectionChange={handleTransactionStatusChange}
-                        />
-                    </Box>
+                            <Box flex={1} overflowY='auto'>
+                                <DateRangeSection
+                                    dateFrom={filters.dateFrom}
+                                    dateTo={filters.dateTo}
+                                    onDateFromChange={handleDateFromChange}
+                                    onDateToChange={handleDateToChange}
+                                />
 
-                    <FilterPanelActions
-                        onClear={handleClear}
-                        onApply={handleApply}
-                    />
-                </FilterPanelContent>
+                                <TransactionTypeSection
+                                    options={transactionTypeOptions}
+                                    selectedValues={filters.transactionType}
+                                    onSelectionChange={
+                                        handleTransactionTypeChange
+                                    }
+                                />
+
+                                <TransactionStatusSection
+                                    options={transactionStatusOptions}
+                                    selectedValues={filters.transactionStatus}
+                                    onSelectionChange={
+                                        handleTransactionStatusChange
+                                    }
+                                />
+                            </Box>
+
+                            <FilterPanelActions
+                                onClear={handleClear}
+                                onApply={handleApply}
+                            />
+                        </FilterPanelContent>
+                    </>
+                )}
             </AnimatePresence>
         </Portal>
     );
