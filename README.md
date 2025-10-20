@@ -28,7 +28,7 @@ The application features a fully responsive design that adapts seamlessly across
 ### Desktop View
 
 ![Desktop View](https://res.cloudinary.com/dapdzcfse/image/upload/v1760953274/Screenshot_2025-10-20_at_10.30.21_AM_vwj6a0.png)
-_Full desktop layout with comprehensive dashboard, sidebar navigation, and detailed transaction analytics_
+_Full desktop layout with comprehensive dashboard and detailed transaction analytics_
 
 ### Tablet View
 
