@@ -21,6 +21,39 @@ A modern React application built for transaction management and financial analyt
 - **Filter Panel**: Advanced filtering interface with date pickers and multi-select options
 - **App Header**: Navigation and user management interface
 
+## 📱 Responsive Design Showcase
+
+The application features a fully responsive design that adapts seamlessly across all device types and screen sizes:
+
+### Desktop View
+
+![Desktop View](https://res.cloudinary.com/dapdzcfse/image/upload/v1760953274/Screenshot_2025-10-20_at_10.30.21_AM_vwj6a0.png)
+_Full desktop layout with comprehensive dashboard, sidebar navigation, and detailed transaction analytics_
+
+### Tablet View
+
+![Tablet View](https://res.cloudinary.com/dapdzcfse/image/upload/v1760953274/Screenshot_2025-10-20_at_10.30.36_AM_y3hqpa.png)
+_Optimized tablet layout with adjusted navigation and responsive grid system_
+
+### Mobile View - Portrait
+
+![Mobile Portrait](https://res.cloudinary.com/dapdzcfse/image/upload/v1760953274/Screenshot_2025-10-20_at_10.29.52_AM_vdoszs.png)
+_Mobile-first design with collapsible navigation and touch-optimized interface_
+
+### Mobile View - Landscape
+
+![Mobile Landscape](https://res.cloudinary.com/dapdzcfse/image/upload/v1760953274/Screenshot_2025-10-20_at_10.30.49_AM_oa8ued.png)
+_Landscape mobile layout maximizing screen real estate for data visualization_
+
+### Responsive Features
+
+- **Adaptive Navigation**: Collapsible sidebar that transforms into a mobile-friendly menu
+- **Flexible Grid System**: Dynamic layout that adjusts based on screen size
+- **Touch-Optimized Interface**: Enhanced touch targets and gestures for mobile devices
+- **Responsive Typography**: Fluid text scaling for optimal readability across devices
+- **Optimized Charts**: Interactive charts that maintain functionality on all screen sizes
+- **Mobile-First Approach**: Progressive enhancement from mobile to desktop experiences
+
 ## 🛠️ Tech Stack
 
 ### Frontend Framework
