@@ -28,12 +28,15 @@ export const useUser = (): UseQueryResult<User, ApiError> => {
 
 /**
  * Hook to get user full name
- * @returns Formatted full name or fallback
+ * @returns Formatted full name or empty string
  */
 export const useUserFullName = (): string => {
     const { data: user } = useUser();
 
-    if (!user) return 'User';
+    if (!user) return '';
 
-    return `${user.first_name} ${user.last_name}`.trim() || 'User';
+    const firstName = user.first_name?.trim() || '';
+    const lastName = user.last_name?.trim() || '';
+
+    return `${firstName} ${lastName}`.trim();
 };

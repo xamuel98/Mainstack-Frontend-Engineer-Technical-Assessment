@@ -86,6 +86,11 @@ export const matchesDateRange = (
 
     const transactionDate = new Date(transaction.date);
 
+    // Check if the transaction date is valid
+    if (isNaN(transactionDate.getTime())) {
+        return false;
+    }
+
     if (dateFrom && transactionDate < dateFrom) return false;
     if (dateTo && transactionDate > dateTo) return false;
 
@@ -132,6 +137,9 @@ export const filterTransactions = (
 export const sortTransactionsByDate = (
     transactions: Transaction[]
 ): Transaction[] => {
+    if (!transactions || !Array.isArray(transactions)) {
+        return [];
+    }
     return [...transactions].sort(
         (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
     );

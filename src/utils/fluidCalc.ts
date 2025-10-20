@@ -47,6 +47,19 @@ export const fluidCalc = (
 
     const unit = useRem ? 'rem' : 'px';
 
+    // Format min and max values with units if they don't already have them
+    const formatValue = (value: string | number): string => {
+        if (typeof value === 'string') {
+            // Check if string already has a unit (contains letters)
+            if (/[a-zA-Z]/.test(value)) {
+                return value; // Already has unit
+            }
+            // String number without unit, add unit
+            return `${value}${unit}`;
+        }
+        return `${value}${unit}`; // Add unit for numbers
+    };
+
     // Return CSS clamp()
-    return `clamp(${minValue}, calc(${intersectionUnit.toFixed(4)}${unit} + ${slopeVW.toFixed(4)}vw), ${maxValue})`;
+    return `clamp(${formatValue(minValue)}, ${intersectionUnit.toFixed(4)}${unit} + ${slopeVW.toFixed(4)}vw, ${formatValue(maxValue)})`;
 };

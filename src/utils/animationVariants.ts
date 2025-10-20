@@ -133,11 +133,9 @@ export const mainstackAppsDialogContainerVariants: Variants = {
 export const overlayVariants: Variants = {
     hidden: {
         opacity: 0,
-        backdropFilter: 'blur(0px)',
     },
     visible: {
         opacity: 1,
-        backdropFilter: 'blur(8px)',
         transition: {
             duration: 0.3,
             ease: [0.16, 1, 0.3, 1],
@@ -145,7 +143,6 @@ export const overlayVariants: Variants = {
     },
     exit: {
         opacity: 0,
-        backdropFilter: 'blur(0px)',
         transition: {
             duration: 0.2,
             ease: [0.16, 1, 0.3, 1],

@@ -31,16 +31,20 @@ export interface TransactionMetadata {
     email: string;
     quantity: number;
     country: string;
-    product_name: string;
+    product_name?: string;
 }
+
+export type TransactionType = 'deposit' | 'withdrawal';
+
+export type TransactionStatus = 'successful' | 'pending' | 'failed';
 
 // Transaction API Response
 export interface Transaction {
     amount: number;
     metadata?: TransactionMetadata;
     payment_reference?: string;
-    status: 'successful' | 'pending' | 'failed';
-    type: 'deposit' | 'withdrawal';
+    status: TransactionStatus;
+    type: TransactionType;
     date: string;
 }
 

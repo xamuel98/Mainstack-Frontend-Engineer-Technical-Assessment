@@ -157,6 +157,11 @@ const AppHeaderMoreAppsDialog = React.memo(() => {
                                 fontSize='16px'
                                 fontWeight={600}
                                 fontFamily='body'
+                                transition='all 0.2s ease'
+                                _hover={{
+                                    bg: 'black',
+                                    color: 'white',
+                                }}
                             >
                                 Close
                             </Button>
