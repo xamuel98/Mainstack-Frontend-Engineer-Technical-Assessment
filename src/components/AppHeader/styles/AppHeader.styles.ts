@@ -152,15 +152,7 @@ export const AppHeaderActionItem = styled.div`
     align-items: center;
     justify-content: center;
     gap: 0.25rem;
-    font-family:
-        'Degular Display',
-        'Degular',
-        system-ui,
-        -apple-system,
-        BlinkMacSystemFont,
-        'Segoe UI',
-        Roboto,
-        sans-serif;
+    font-family: 'Degular';
     font-weight: 600;
     font-size: 17px;
     color: #56616b;
@@ -196,7 +188,7 @@ export const AppHeaderUserAction = styled(Box)`
 export const AppHeaderUserAvatarFallback = styled(Avatar.Fallback)<{
     name: string;
 }>`
-    font-family: 'Degular Display', 'Degular', system-ui, sans-serif;
+    font-family: 'Degular';
     font-weight: 600;
     font-size: 14px;
 `;

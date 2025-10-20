@@ -109,15 +109,7 @@ export const DropdownItemLabel = styled(VStack)`
 
 export const DropdownItemTitle = styled(Text)`
     color: #131316;
-    font-family:
-        'Degular Display',
-        'Degular',
-        system-ui,
-        -apple-system,
-        BlinkMacSystemFont,
-        'Segoe UI',
-        Roboto,
-        sans-serif;
+    font-family: 'Degular';
     font-weight: 600;
     font-size: 1rem;
     font-style: normal;
@@ -127,14 +119,7 @@ export const DropdownItemTitle = styled(Text)`
 
 export const DropdownItemDescription = styled(Text)`
     color: #4a5568;
-    font-family:
-        'Degular',
-        system-ui,
-        -apple-system,
-        BlinkMacSystemFont,
-        'Segoe UI',
-        Roboto,
-        sans-serif;
+    font-family: 'Degular';
     font-size: 0.875rem;
     font-weight: 500;
     font-style: normal;

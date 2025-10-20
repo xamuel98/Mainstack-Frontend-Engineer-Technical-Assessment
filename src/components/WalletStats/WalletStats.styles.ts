@@ -42,7 +42,7 @@ export const WalletStatLabel = styled.p`
     line-height: 16px;
     letter-spacing: -0.2px;
     color: #56616b;
-    font-family: 'Degular', Arial, Helvetica, sans-serif;
+    font-family: 'Degular';
     font-size: 14px;
     font-weight: 500;
     margin: 0;
@@ -75,7 +75,7 @@ export const WalletStatValue = styled.p`
     line-height: 38px;
     letter-spacing: -0.6px;
     color: #131316;
-    font-family: 'Degular', Arial, Helvetica, sans-serif;
+    font-family: 'Degular';
     font-size: ${fluidCalc('24px', '28px')};
     font-weight: 700;
     margin: 0;
