@@ -10,7 +10,7 @@
 
 import { Transaction } from '../types/api';
 import { formatMoney, formatDate } from './formatters';
-import { toaster } from '@/components/ui/Toaster';
+import { toaster } from '@/components/ui/toaster';
 
 /**
  * @description Converts an array of transactions to CSV format

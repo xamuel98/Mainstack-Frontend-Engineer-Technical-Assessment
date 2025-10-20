@@ -212,7 +212,6 @@ npm run test:coverage
 
 - Real-time balance tracking
 - Revenue and payout calculations
-- Percentage-based insights
 - Loading states and error handling
 - Responsive card layout
 
@@ -231,23 +230,6 @@ npm run test:coverage
 - Formatted transaction data
 - Download with proper file naming
 
-## 🔧 Development Guidelines
-
-### Code Style
-
-- Follow TypeScript best practices
-- Use functional components with hooks
-- Implement proper error boundaries
-- Write comprehensive tests for new features
-- Follow the established folder structure
-
-### Performance Considerations
-
-- React Query for efficient data caching
-- Memoization for expensive calculations
-- Lazy loading for route-based code splitting
-- Optimized re-renders with proper dependencies
-
 ## 🚀 Deployment
 
 ### Build for Production
@@ -258,28 +240,13 @@ npm run build
 
 The build artifacts will be stored in the `dist/` directory.
 
-### Deployment Options
-
-- **Vercel**: Optimized for React applications
-- **Netlify**: Static site hosting with CI/CD
-- **AWS S3 + CloudFront**: Scalable static hosting
-- **Docker**: Containerized deployment
-
-## 🤝 Contributing
-
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
-
 ## 📝 License
 
 This project is part of the Mainstack Frontend Engineer Technical Assessment.
 
 ## 🔗 Links
 
-- [Mainstack](https://mainstack.co)
+- [Mainstack](https://mainstack.com)
 - [React Documentation](https://react.dev)
 - [Chakra UI](https://chakra-ui.com)
 - [Vite](https://vitejs.dev)
